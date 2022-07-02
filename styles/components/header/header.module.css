@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    top: 0;
+    width: 100%;
+    height: 8rem;
+    align-items: center;
+    background-color: rgb(22, 22, 60);
+    color: white;
+}
+
+.container h1 {
+    cursor: default;
+    margin-left: 15%;
+    font-size: 2.5rem;
+}
+
+.buttonContainer {
+    margin-right: 15%;
+}
+
+.hamburgerButton {
+    display: none;
+}
+
+@media screen and (max-width: 1400px) {
+    .mainButton {
+        display: none;
+    }
+
+    .hamburgerButton {
+        display: block;
+    }
+}

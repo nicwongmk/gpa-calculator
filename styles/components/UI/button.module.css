@@ -1,0 +1,27 @@
+.mainButton {
+    cursor: pointer;
+    padding: 0.75rem 3rem;
+    margin: 0;
+    border: none;
+    border-radius: 25px;
+    font: inherit;
+    font-size: 1.5rem;
+    background-color: transparent;
+    color: white;
+    transition: .3s;
+}
+
+.mainButton:hover {
+    background-color: white;
+    color: rgb(22, 22, 60);
+}
+
+.hamburgerButton {
+    cursor: pointer;
+    padding-bottom: 1rem;
+    border: none;
+    font: inherit;
+    font-size: 5rem;
+    background-color: transparent;
+    color: white;
+}

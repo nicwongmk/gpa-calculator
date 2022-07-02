@@ -1,0 +1,13 @@
+.footer {
+    position: fixed;
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.footer p {
+    cursor: default;
+    margin: 0;
+    font-size: 0.85rem;
+    color: gray;
+}
