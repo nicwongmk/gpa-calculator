@@ -8,6 +8,7 @@
     align-items: center;
     background-color: rgb(22, 22, 60);
     color: white;
+    z-index: 20;
 }
 
 .container h1 {
@@ -18,6 +19,10 @@
 
 .buttonContainer {
     margin-right: 15%;
+}
+
+.buttonContainer .mainButton {
+    margin-left: 2rem;
 }
 
 .hamburgerButton {
@@ -31,5 +36,20 @@
 
     .hamburgerButton {
         display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        height: 4rem;
+    }
+
+    .container h1 {
+        margin-left: 10%;
+        font-size: 2rem;
+    }
+    
+    .hamburgerButton {
+        margin-right: -2rem;
     }
 }

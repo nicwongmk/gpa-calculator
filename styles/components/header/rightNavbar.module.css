@@ -2,6 +2,24 @@
     position: fixed;
     right: 0;
     height: 100%;
-    width: 10%;
-    background-color: rgb(26, 60, 22);
+    width: 40%;
+    padding-top: 8rem;
+    background-color: rgb(22, 22, 60);
+    animation: slide-left 300ms ease-out forwards;
+    z-index: 10;
+}
+
+@keyframes slide-left {
+    from {
+      opacity: 0;
+      transform: translateX(3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+@media screen and (min-width: 1400px) {
+    .container {display: none;}
 }

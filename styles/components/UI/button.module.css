@@ -25,3 +25,20 @@
     background-color: transparent;
     color: white;
 }
+
+.navbarButton {
+    cursor: pointer;
+    width: 100%;
+    padding: 1rem;
+    border: 0;
+    background-color: transparent;
+    color: white;
+    font: inherit;
+    font-size: 1.25rem;
+    transition: .3s;
+}
+
+.navbarButton:hover {
+    background-color: white;
+    color: rgb(22, 22, 60);
+}
