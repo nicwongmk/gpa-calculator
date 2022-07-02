@@ -3,12 +3,12 @@ import styles from '../../styles/components/header/rightNavbar.module.css'
 import Backdrop from "../UI/backdrop/backdrop";
 import NavbarButton from "../UI/button/navbarButton";
 
-const RightNavbar = ({ showNavbar }) => {
+const RightNavbar = ({ showNavbar, showSetting }) => {
     return (
         <Fragment>
             <Backdrop hideBackdrop={ showNavbar } />
             <nav className={ styles.container }>
-                <NavbarButton>Setting</NavbarButton>
+                <NavbarButton onClick={ showSetting }>Setting</NavbarButton>
                 <NavbarButton>About</NavbarButton>
                 <NavbarButton>Contact</NavbarButton>
             </nav>

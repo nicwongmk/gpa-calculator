@@ -1,0 +1,26 @@
+.modal {
+    position: fixed;
+    top: 12vh;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin: auto;
+    border-radius: 25px;
+    background-color: white;
+    color: black;
+    font: inherit;
+    z-index: 20;
+    overflow: hidden;
+    animation: slide-down 300ms ease-out forwards;
+}
+
+@keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-3rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

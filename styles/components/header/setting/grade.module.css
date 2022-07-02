@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+.container p {
+    font: inherit;
+    font-size: 1.5rem;
+    margin: 0;
+}

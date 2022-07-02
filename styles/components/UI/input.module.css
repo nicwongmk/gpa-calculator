@@ -1,0 +1,9 @@
+.pointInput {
+    height: 2rem;
+    width: 5rem;
+    border: black solid 0px;
+    border-radius: 5px;
+    background-color: rgb(251, 229, 232);
+    font: inherit;
+    text-align: center;
+}
