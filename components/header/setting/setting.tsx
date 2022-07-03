@@ -1,21 +1,51 @@
+import useLocalStorage from "../../../hooks/useLocalStorage";
 import Modal from "../../UI/modal/modal";
-import GradeList from "./gradeList";
+import GradeSetting from "./gradeSetting";
+import OtherSetting from "./otherSetting";
+import SelectionButton from "./selectionButton";
+
 import styles from '../../../styles/components/header/setting/setting.module.css';
 
 const Setting = ({ closeSetting }) => {
+    const[selectedGradeSetting, setSelectedGradeSetting] = useLocalStorage("gradeList", [
+        { grade: "A+", point: 4},
+        { grade: "A", point: 4},
+        { grade: "A-", point: 3.7},
+        { grade: "B+", point: 3.3},
+        { grade: "B", point: 3},
+        { grade: "B-", point: 2.7},
+        { grade: "C+", point: 2.3},
+        { grade: "C", point: 2},
+        { grade: "C-", point: 1.7},
+        { grade: "D+", point: 1.3},
+        { grade: "D", point: 1},
+        { grade: "D-", point: 0.7},
+        { grade: "F", point: 0},
+    ]);
+    const [selectedmaxGPASetting, setSelectedmaxGPASetting] = useLocalStorage("maxGPA", 4.00);
+    const [selectedDecimalPlacesSetting, setSelectedDecimalPlacesSetting] = useLocalStorage("decimalPlaces", 2);
+
     return (
         <Modal className={ styles.container } closeModal={ closeSetting }>
             <div className={ styles.heading }>
                 <h2>Setting</h2>
+                <p>Please customise the settings through the pink boxes</p>
             </div>
             <div className={ styles.gpaSetting }>
-                <GradeList />
+                <GradeSetting receiveSelectedSetting={ selectedGradeSetting }/>
             </div>
             <div className={ styles.otherSetting }>
-                <h2>Other setting</h2>
+                <OtherSetting 
+                    receiveSelectedmaxGPASetting={ selectedmaxGPASetting }
+                    receiveSelectedDecimalPlacesSetting={ selectedDecimalPlacesSetting }
+                />
             </div>
             <div className={ styles.selectionButton }>
-                <h2>Default Button</h2>
+                <SelectionButton 
+                    sendGradeSetting={(gradeList) => setSelectedGradeSetting(gradeList)} 
+                    sendmaxGPASetting={(maxGPA) => setSelectedmaxGPASetting(maxGPA)} 
+                    sendDecimalPlaces={(decimalPlaces) => setSelectedDecimalPlacesSetting(decimalPlaces)} 
+                />
             </div>
         </Modal>
     );

@@ -3,17 +3,15 @@ import PointInput from '../../UI/input/pointInput';
 
 type Props = {
     pointChangeHandler: any,
-    key: number,
     grade: string,
     point: number,
 }
 
-const Grade = ({ pointChangeHandler, key, grade, point }:Props) => {
+const Grade = ({ pointChangeHandler, grade, point }:Props) => {
     return (
         <div className={ styles.container }>
             <p>{grade}</p>
             <PointInput 
-                key={key}
                 className={undefined} 
                 type={"number"} 
                 placeholder={''} 

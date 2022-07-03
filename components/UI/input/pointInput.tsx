@@ -1,7 +1,7 @@
 import styles from '../../../styles/components/UI/input.module.css'
 
 type props = {
-    key: number,
+
     className: any,
     type: string,
     placeholder: string,
@@ -12,10 +12,9 @@ type props = {
     onChange: any
 }
 
-const PointInput = ({ key, className, type, placeholder, max, min, step, value, onChange }:props) => {
+const PointInput = ({ className, type, placeholder, max, min, step, value, onChange }:props) => {
     return (
         <input 
-            key={ key }
             className={ `${className} ${styles.pointInput}` }
             type={ type }
             placeholder={ placeholder }

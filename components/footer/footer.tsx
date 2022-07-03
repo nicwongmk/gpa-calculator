@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         <footer className={ styles.footer }>
             <p>Designed by Nicholas Wong in 2022</p>
-            <p>GPA Calculator is designed by Next.js with TypeScript</p>
+            <p>GPA Calculator is powered by Next.js with TypeScript</p>
         </footer>
     );
 }
