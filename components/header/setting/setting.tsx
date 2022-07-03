@@ -3,7 +3,6 @@ import Modal from "../../UI/modal/modal";
 import GradeSetting from "./gradeSetting";
 import OtherSetting from "./otherSetting";
 import SelectionButton from "./selectionButton";
-
 import styles from '../../../styles/components/header/setting/setting.module.css';
 
 const Setting = ({ closeSetting }) => {

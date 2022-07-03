@@ -7,3 +7,16 @@
     font: inherit;
     text-align: center;
 }
+
+.regularInput {
+    height: 2rem;
+    width: 15rem;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-bottom: 1rem;
+    border: black solid 1px;
+    border-radius: 5px;
+    background-color: white;
+    font: inherit;
+}
