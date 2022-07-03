@@ -42,3 +42,8 @@
     background-color: white;
     color: rgb(22, 22, 60);
 }
+
+.roundButton {
+    width: 1rem;
+    border-radius: 25px;
+}

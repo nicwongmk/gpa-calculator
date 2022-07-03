@@ -13,3 +13,21 @@ a {
 * {
   box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+::-webkit-scrollbar-track {
+  margin-block: 1em;
+}
+
+::-webkit-scrollbar-thumb {
+  border: .13em solid white;
+  border-radius: 25px;
+  background: rgb(22, 22, 60, 0.7);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(22, 22, 60);
+}

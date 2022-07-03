@@ -1,4 +1,5 @@
 import styles from '../../styles/components/main/main.module.css';
+import QuickCalculation from './quickCalculation/quickCalculation';
 
 const Main = () => {
     return (
@@ -14,6 +15,7 @@ const Main = () => {
                     <h2>Already have a current GPA and want to predict one?</h2>
                     <p>Try the quick calculator</p>
                 </section>
+                <QuickCalculation />
             </div>
             <div className={ styles.comprehensiveCalculation }>
 
