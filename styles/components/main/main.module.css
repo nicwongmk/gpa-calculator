@@ -1,0 +1,82 @@
+.main {
+    cursor: default;
+    height: 100vh;
+    background-color: rgb(22, 22, 60);
+    color: white;
+}
+
+.main h1 {
+    font-size: min(max(6vw, 25px), 75px);
+    margin: 0;
+    padding-left: 20vw;
+    position: relative;
+    top: 30vh;
+}
+
+.main p {
+    font-size: min(max(2.5vw, 20px), 37.5px);
+    margin: 0;
+    padding-left: 20vw;
+    position: relative;
+    top: 35vh;
+}
+
+.quickCalculation {
+    cursor: default;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    min-height: 50rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.quickCalculation h2 {
+    font-size: min(max(3vw, 25px), 65px);
+    color: rgb(22, 22, 60);
+    margin: 0;
+    padding-left: 15vw;
+    padding-right: 5vw;
+    position: relative;
+}
+
+.quickCalculation p {
+    font-size: min(max(2vw, 25px), 43px);
+    color: rgb(22, 22, 60);
+    margin-top: 1rem;
+    padding-left: 15vw;
+    padding-right: 5vw;
+    position: relative;
+}
+
+@media screen and (max-width: 1400px) {
+    .quickCalculation {
+        flex-direction: column;
+        justify-content:start;
+        height: 85vh;
+    }
+
+    .quickCalculation h2 {
+        padding-top: 10%;
+        padding-right: 10vw;
+        font-size: min(max(3vw, 25px), 65px);
+    }
+
+    .quickCalculation p {
+        font-size: min(max(2.5vw, 17.5px), 39px);
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .main h1 {
+        text-align: center;
+        padding: 0;
+        font-size: min(max(8vw, 25px), 50px);
+    }
+
+    .main p {
+        font-size: min(max(4vw, 20px), 25px);
+        padding-left: 10%;
+    }
+}

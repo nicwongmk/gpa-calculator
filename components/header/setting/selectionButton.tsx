@@ -1,6 +1,6 @@
 import MainButton from "../../UI/button/mainButton";
 
-const SelectionButton = ({ sendGradeSetting, sendmaxGPASetting, sendDecimalPlaces }) => {
+const SelectionButton = ({ sendGradeSetting, sendmaxGPASetting, sendDecimalPlaces, sendRound }) => {
 
     const standard1 = [{
         gradeList: [
@@ -19,7 +19,8 @@ const SelectionButton = ({ sendGradeSetting, sendmaxGPASetting, sendDecimalPlace
             { grade: "F", point: 0},
         ],
         maxGPA: 4.00,
-        decimalPlaces: 2
+        decimalPlaces: 2,
+        round: "roundTo"
     }];
 
     const standard2 = [{
@@ -39,7 +40,8 @@ const SelectionButton = ({ sendGradeSetting, sendmaxGPASetting, sendDecimalPlace
             { grade: "F", point: 0},
         ],
         maxGPA: 4.00,
-        decimalPlaces: 2
+        decimalPlaces: 2,
+        round: "roundTo"
     }];
 
     const standard3 = [{
@@ -59,25 +61,29 @@ const SelectionButton = ({ sendGradeSetting, sendmaxGPASetting, sendDecimalPlace
             { grade: "F", point: 0},
         ],
         maxGPA: 4.30,
-        decimalPlaces: 2
+        decimalPlaces: 2,
+        round: "roundTo"
     }];
 
     const setStandard1Hander = () => {
         sendGradeSetting(standard1[0].gradeList);
         sendmaxGPASetting(standard1[0].maxGPA);
         sendDecimalPlaces(standard1[0].decimalPlaces);
+        sendRound(standard1[0].round);
     }
 
     const setStandard2Hander = () => {
         sendGradeSetting(standard2[0].gradeList);
         sendmaxGPASetting(standard2[0].maxGPA);
         sendDecimalPlaces(standard2[0].decimalPlaces);
+        sendRound(standard2[0].round);
     }
 
     const setStandard3Hander = () => {
         sendGradeSetting(standard3[0].gradeList);
         sendmaxGPASetting(standard3[0].maxGPA);
         sendDecimalPlaces(standard3[0].decimalPlaces);
+        sendRound(standard3[0].round);
     }
 
     return (

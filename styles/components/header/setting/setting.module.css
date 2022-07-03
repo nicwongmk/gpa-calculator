@@ -47,6 +47,19 @@
     align-items: center;
 }
 
+.roundContainer {
+    grid-area: 3 / 1 / 4 / 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    margin-top: 1rem;
+}
+
+.roundContainer p {
+    grid-area: 1 / 1 / 2 / 3;
+    margin: 0;
+}
+
 .selectionButton {
     grid-area: 3 / 2 / 4 / 3;
     display: flex;
@@ -71,4 +84,21 @@
 .selectionButton button:hover {
     background-color: rgb(206, 149, 157);
     color: black;
+}
+
+@media screen and (max-width: 750px) {
+    .heading h2 {
+        font-size: 1.5rem;
+    }
+
+    .heading p {
+        font-size: 0.9rem;
+    }
+
+    .selectionButton button {
+        width: 16rem;
+        font-size: 1rem;
+        margin-right: 1rem;
+    }
+
 }

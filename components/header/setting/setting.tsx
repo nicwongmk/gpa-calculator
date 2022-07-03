@@ -24,6 +24,7 @@ const Setting = ({ closeSetting }) => {
     ]);
     const [selectedmaxGPASetting, setSelectedmaxGPASetting] = useLocalStorage("maxGPA", 4.00);
     const [selectedDecimalPlacesSetting, setSelectedDecimalPlacesSetting] = useLocalStorage("decimalPlaces", 2);
+    const [selectedRoundSetting, setSelctedRoundSetting] = useLocalStorage("round", "roundTo");
 
     return (
         <Modal className={ styles.container } closeModal={ closeSetting }>
@@ -38,13 +39,15 @@ const Setting = ({ closeSetting }) => {
                 <OtherSetting 
                     receiveSelectedmaxGPASetting={ selectedmaxGPASetting }
                     receiveSelectedDecimalPlacesSetting={ selectedDecimalPlacesSetting }
+                    receiveSelectedRound={ selectedRoundSetting}
                 />
             </div>
             <div className={ styles.selectionButton }>
                 <SelectionButton 
                     sendGradeSetting={(gradeList) => setSelectedGradeSetting(gradeList)} 
                     sendmaxGPASetting={(maxGPA) => setSelectedmaxGPASetting(maxGPA)} 
-                    sendDecimalPlaces={(decimalPlaces) => setSelectedDecimalPlacesSetting(decimalPlaces)} 
+                    sendDecimalPlaces={(decimalPlaces) => setSelectedDecimalPlacesSetting(decimalPlaces)}
+                    sendRound={(round) => setSelctedRoundSetting(round)} 
                 />
             </div>
         </Modal>
