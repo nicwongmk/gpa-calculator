@@ -1,16 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../../../styles/components/main/quickCalculation/quickCalculation.module.css';
 import RegularInput from '../../UI/input/regularInput';
 import CourseList from './courseList';
 
 const QuickCalculation = () => {
+    const [cumulativeGPA, setCumulativeGPA] = useState(0);
     const [totalCredits, setTotalCredits] = useState(0);
 
     return (
         <div className={ styles.container }>
             <div className={ styles.resultContainer }>
                 <p>CGPA:</p>
-                <p>0</p>
+                <p>{ cumulativeGPA }</p>
                 <p>Total Credits:</p>
                 <p>{ totalCredits }</p>
             </div>
@@ -20,7 +21,10 @@ const QuickCalculation = () => {
                 <p>Current Credits:</p>
                 <RegularInput className={undefined} type={''} placeholder={''} max={0} min={0} step={0} value={undefined} onChange={undefined} />
             </div>
-            <CourseList totalEnteredCredits={ (totalEnteredCredits) => setTotalCredits(totalEnteredCredits) }/>
+            <CourseList 
+                cumulativeEnteredGPA={ (cumulativeEnteredGPA) => setCumulativeGPA(cumulativeEnteredGPA) }
+                totalEnteredCredits={ (totalEnteredCredits) => setTotalCredits(totalEnteredCredits) }
+            />
         </div>
     );
 };
