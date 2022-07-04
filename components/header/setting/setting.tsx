@@ -4,8 +4,9 @@ import GradeSetting from "./gradeSetting";
 import OtherSetting from "./otherSetting";
 import SelectionButton from "./selectionButton";
 import styles from '../../../styles/components/header/setting/setting.module.css';
+import { useEffect } from "react";
 
-const Setting = ({ closeSetting }) => {
+const Setting = ({ closeSetting, dataFromSetting, decimalPlaces }) => {
     const[selectedGradeSetting, setSelectedGradeSetting] = useLocalStorage("gradeList", [
         { grade: "A+", point: 4},
         { grade: "A", point: 4},
@@ -33,13 +34,14 @@ const Setting = ({ closeSetting }) => {
             </div>
             <div className={ styles.subcontainer }>
             <div className={ styles.gpaSetting }>
-                <GradeSetting receiveSelectedSetting={ selectedGradeSetting }/>
+                <GradeSetting receiveSelectedSetting={ selectedGradeSetting } dataFromSetting={ dataFromSetting }/>
             </div>
             <div className={ styles.otherSetting }>
                 <OtherSetting 
                     receiveSelectedmaxGPASetting={ selectedmaxGPASetting }
                     receiveSelectedDecimalPlacesSetting={ selectedDecimalPlacesSetting }
-                    receiveSelectedRound={ selectedRoundSetting}
+                    receiveSelectedRound={ selectedRoundSetting }
+                    sendDecimalPlaces={ decimalPlaces }
                 />
             </div>
             <div className={ styles.selectionButton }>

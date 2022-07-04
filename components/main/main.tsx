@@ -1,7 +1,7 @@
 import styles from '../../styles/components/main/main.module.css';
 import QuickCalculation from './quickCalculation/quickCalculation';
 
-const Main = () => {
+const Main = ({ dataFromSetting, decimalPlaces }) => {
     return (
         <main>
             <div className={ styles.main }>
@@ -15,7 +15,10 @@ const Main = () => {
                     <h2>Already have a current GPA and want to predict one?</h2>
                     <p>Try the quick calculator</p>
                 </section>
-                <QuickCalculation />
+                <QuickCalculation 
+                    dataFromSetting={ dataFromSetting }
+                    decimalPlaces={ decimalPlaces }
+                />
             </div>
             <div className={ styles.comprehensiveCalculation }>
 

@@ -3,7 +3,7 @@ import useLocalStorage from '../../../hooks/useLocalStorage';
 import PointInput from "../../UI/input/pointInput";
 import styles from '../../../styles/components/header/setting/setting.module.css';
 
-const OtherSetting = ({ receiveSelectedmaxGPASetting, receiveSelectedDecimalPlacesSetting, receiveSelectedRound}) => {
+const OtherSetting = ({ receiveSelectedmaxGPASetting, receiveSelectedDecimalPlacesSetting, receiveSelectedRound, sendDecimalPlaces}) => {
     const [maxGPA, setMaxGPA] = useLocalStorage("maxGPA", 4.00);
     const [decimalPlaces, setDecimalPlaces] = useLocalStorage("decimalPlaces", 2);
     const [round, setRound] = useLocalStorage("round", "roundTo");
@@ -11,6 +11,8 @@ const OtherSetting = ({ receiveSelectedmaxGPASetting, receiveSelectedDecimalPlac
     useEffect(() => setMaxGPA(receiveSelectedmaxGPASetting), [receiveSelectedmaxGPASetting]);
     useEffect(() => setDecimalPlaces(receiveSelectedDecimalPlacesSetting), [receiveSelectedDecimalPlacesSetting]);
     useEffect(() => setRound(receiveSelectedRound), [receiveSelectedRound]);
+
+    sendDecimalPlaces(decimalPlaces);
 
     return (
         <>

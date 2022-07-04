@@ -1,26 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useLocalStorage from '../../../hooks/useLocalStorage';
 import styles from '../../../styles/components/main/quickCalculation/quickCalculation.module.css';
 import MainButton from "../../UI/button/mainButton";
 import Course from './course';
 
-const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
+const CourseList = ({ dataFromSetting, cumulativeEnteredGPA, totalEnteredCredits }) => {
     const [course, setCourse] = useState([]);
-    const[selectedGradeSetting, setSelectedGradeSetting] = useLocalStorage("gradeList", [
-        { grade: "A+", point: 4},
-        { grade: "A", point: 4},
-        { grade: "A-", point: 3.7},
-        { grade: "B+", point: 3.3},
-        { grade: "B", point: 3},
-        { grade: "B-", point: 2.7},
-        { grade: "C+", point: 2.3},
-        { grade: "C", point: 2},
-        { grade: "C-", point: 1.7},
-        { grade: "D+", point: 1.3},
-        { grade: "D", point: 1},
-        { grade: "D-", point: 0.7},
-        { grade: "F", point: 0},
-    ]);
+
+    useEffect(() => {
+        cumulativeEnteredGPA(cumulativeEnteredGPACalculation);
+        totalEnteredCredits(totalEnteredCreditsCalculation);
+    });
 
     const addCourseHandler = () => {
         setCourse((prev) => [...prev, { name:"", grade:"", credits: 0}]);
@@ -41,8 +31,13 @@ const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
         setCourse(clone);
     };
 
-    cumulativeEnteredGPA((course.map(courseData => courseData.grade === "" ? 0 : selectedGradeSetting[selectedGradeSetting.findIndex(gradeList => gradeList.grade === courseData.grade)].point)).reduce((prev, points) => prev + points, 0));
-    totalEnteredCredits(course.reduce((prev, courseData) => prev + courseData.credits, 0));
+    const cumulativeEnteredGPACalculation = () => ((course
+        .map(courseData => courseData.grade === "" ? 0 : dataFromSetting
+        .find(gradeList => gradeList.grade === courseData.grade).point * courseData.credits))
+        .reduce((prev, points) => prev + points, 0)
+    );
+
+    const totalEnteredCreditsCalculation = () => (course.reduce((prev, courseData) => prev + courseData.credits, 0));
 
     return (
         <>

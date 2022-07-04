@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import useLocalStorage from '../../../hooks/useLocalStorage';
 import Grade from './grade';
 
-const GradeSetting = ({ receiveSelectedSetting }) => {
+const GradeSetting = ({ receiveSelectedSetting, dataFromSetting }) => {
     const [gradeList, setGradeList] = useLocalStorage("gradeList", [
         { grade: "A+", point: 4},
         { grade: "A", point: 4},
@@ -20,6 +20,8 @@ const GradeSetting = ({ receiveSelectedSetting }) => {
     ]);
 
     useEffect(() => setGradeList(receiveSelectedSetting), [receiveSelectedSetting]);
+
+    dataFromSetting(gradeList);
     
     const setPointHandler = (point: number, key: number) => {
         setGradeList((prev: []) => [
