@@ -9,7 +9,7 @@ type Props = {
 
 const Grade = ({ pointChangeHandler, grade, point }:Props) => {
     return (
-        <div className={ styles.container }>
+        <li className={ styles.container }>
             <p>{grade}</p>
             <PointInput 
                 className={undefined} 
@@ -23,7 +23,7 @@ const Grade = ({ pointChangeHandler, grade, point }:Props) => {
                     pointChangeHandler({ grade: grade, point: parseFloat(event.target.value) || 0})
                 }} 
             />
-        </div>
+        </li>
     );
 };
 

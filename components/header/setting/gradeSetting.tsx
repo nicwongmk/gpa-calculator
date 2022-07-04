@@ -30,7 +30,7 @@ const GradeSetting = ({ receiveSelectedSetting }) => {
     };
 
     return (
-        <div>
+        <ul>
             { gradeList.map((gradeList: any, index: number) => (
                 <Grade 
                     key={index}
@@ -40,7 +40,7 @@ const GradeSetting = ({ receiveSelectedSetting }) => {
                     }}
                 />
             )) }
-        </div>
+        </ul>
     );
 };
 

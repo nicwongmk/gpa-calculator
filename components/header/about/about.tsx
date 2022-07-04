@@ -6,7 +6,7 @@ const About = ({ closeAbout }) => {
         <Modal className={ styles.container } closeModal={ closeAbout }>
             <h2>About</h2>
             <p>The "GPA Calculator" helps you to calculate your GPA by customised settings.
-                Items below shows the settings that you can define to fit your needs: <br /><br />
+                Items below show the settings that you can define to fit your needs: <br /><br />
                 1. Points gained by each grade <br />
                 2. Maximum CGPA <br />
                 3. Decimal place of your CGPA <br />

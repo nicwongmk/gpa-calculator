@@ -3,7 +3,7 @@ import styles from '../../../styles/components/main/quickCalculation/quickCalcul
 import MainButton from "../../UI/button/mainButton";
 import Course from './course';
 
-const CourseList = () => {
+const CourseList = ({ totalEnteredCredits }) => {
     const [course, setCourse] = useState([]);
 
     const addCourseHandler = () => {
@@ -14,8 +14,16 @@ const CourseList = () => {
         setCourse([
             ...course.slice(0, index),
             ...course.slice(index + 1)
-        ])
-    }
+        ]);
+    };
+
+    const changeCreditsHandler = (credits, index) => {
+        const clone = [...course];
+        clone[index].credits = credits;
+        setCourse(clone);
+    };
+
+    totalEnteredCredits(course.reduce((prev, courseData) => prev + courseData.credits, 0));
 
     return (
         <>
@@ -23,7 +31,10 @@ const CourseList = () => {
             <ol className={ styles.courseListContainer }>
                 { course.map((courseData, courseID) => 
                     <Course 
+                        key={ courseID }
                         courseID={ courseID } 
+                        courseData={ courseData }
+                        changeCreditsHandler={  changeCreditsHandler }
                         deleteCourseHandler={ deleteCourseHandler } 
                     />) 
                 }

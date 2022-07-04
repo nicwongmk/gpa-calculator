@@ -31,6 +31,7 @@ const Setting = ({ closeSetting }) => {
                 <h2>Setting</h2>
                 <p>Please customise the settings through the pink boxes</p>
             </div>
+            <div className={ styles.subcontainer }>
             <div className={ styles.gpaSetting }>
                 <GradeSetting receiveSelectedSetting={ selectedGradeSetting }/>
             </div>
@@ -48,6 +49,7 @@ const Setting = ({ closeSetting }) => {
                     sendDecimalPlaces={(decimalPlaces) => setSelectedDecimalPlacesSetting(decimalPlaces)}
                     sendRound={(round) => setSelctedRoundSetting(round)} 
                 />
+            </div>
             </div>
         </Modal>
     );

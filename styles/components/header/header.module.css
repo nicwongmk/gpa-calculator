@@ -31,6 +31,12 @@
     display: none;
 }
 
+@media screen and (max-height: 800px) {
+    .container {
+        height: 5rem;
+    }
+}
+
 @media screen and (max-width: 1400px) {
     .mainButton {
         display: none;
