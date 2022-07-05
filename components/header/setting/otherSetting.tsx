@@ -17,7 +17,7 @@ const OtherSetting = ({ receiveSelectedmaxGPASetting, receiveSelectedDecimalPlac
 
     return (
         <>
-            <p>Max GPA: </p>
+            <p>Max CGPA: </p>
             <PointInput 
                 className={undefined} 
                 type={"number"} 

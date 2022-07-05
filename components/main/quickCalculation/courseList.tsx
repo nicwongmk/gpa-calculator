@@ -32,7 +32,7 @@ const CourseList = ({ dataFromSetting, cumulativeEnteredGPA, totalEnteredCredits
 
     const cumulativeEnteredGPACalculation = () => ((course
         .map(courseData => courseData.grade === "" ? 0 : dataFromSetting
-        .find(gradeList => gradeList.grade === courseData.grade).point * courseData.credits))
+        .find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits))
         .reduce((prev, points) => prev + points, 0)
     );
 
