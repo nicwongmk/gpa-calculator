@@ -7,7 +7,7 @@ import Contact from './contact/contact';
 import RightNavbar from './rightNavbar';
 import Setting from './setting/setting';
 
-const Header = ({ decimalPlaces, maxGPA }) => {
+const Header = () => {
     const [showNavbar, setShowNavbar] = useState(false);
     const [showSetting, setShowSetting] = useState(false);
     const [showAbout, setShowAbout] = useState(false);
@@ -22,7 +22,7 @@ const Header = ({ decimalPlaces, maxGPA }) => {
                     <MainButton className={ styles.mainButton } onClick={() => setShowAbout((prev) => !prev)}>About</MainButton>
                     <MainButton className={ styles.mainButton } onClick={() => setShowContact((prev) => !prev)}>Contact</MainButton>
                     <HamburgerButton className={ styles.hamburgerButton } onClick={() => setShowNavbar((prev) => !prev)}>≡</HamburgerButton>
-                    { showSetting && <Setting closeSetting={() => setShowSetting((prev) => !prev)} decimalPlaces={ decimalPlaces } maxGPA={ maxGPA }/> }
+                    { showSetting && <Setting closeSetting={() => setShowSetting((prev) => !prev)}/> }
                     { showAbout && <About closeAbout={() => setShowAbout((prev) => !prev)}/> }
                     { showContact && <Contact closeContact={() => setShowContact((prev) => !prev)}/> }
                 </div>

@@ -5,11 +5,7 @@ import OtherSetting from "./otherSetting";
 import SelectionButton from "./selectionButton";
 import styles from '../../../styles/components/header/setting/setting.module.css';
 
-const Setting = ({ closeSetting, decimalPlaces, maxGPA }) => {
-    const [selectedmaxGPASetting, setSelectedmaxGPASetting] = useLocalStorage("maxGPA", 4.00);
-    const [selectedDecimalPlacesSetting, setSelectedDecimalPlacesSetting] = useLocalStorage("decimalPlaces", 2);
-    const [selectedRoundSetting, setSelctedRoundSetting] = useLocalStorage("round", "roundTo");
-
+const Setting = ({ closeSetting }) => {
     return (
         <Modal className={ styles.container } closeModal={ closeSetting }>
             <div className={ styles.heading }>
@@ -21,20 +17,10 @@ const Setting = ({ closeSetting, decimalPlaces, maxGPA }) => {
                 <GradeSetting />
             </div>
             <div className={ styles.otherSetting }>
-                <OtherSetting 
-                    receiveSelectedmaxGPASetting={ selectedmaxGPASetting }
-                    receiveSelectedDecimalPlacesSetting={ selectedDecimalPlacesSetting }
-                    receiveSelectedRound={ selectedRoundSetting }
-                    sendMaxGPA={ maxGPA }
-                    sendDecimalPlaces={ decimalPlaces }
-                />
+                <OtherSetting />
             </div>
             <div className={ styles.selectionButton }>
-                <SelectionButton 
-                    sendmaxGPASetting={(maxGPA) => setSelectedmaxGPASetting(maxGPA)} 
-                    sendDecimalPlaces={(decimalPlaces) => setSelectedDecimalPlacesSetting(decimalPlaces)}
-                    sendRound={(round) => setSelctedRoundSetting(round)} 
-                />
+                <SelectionButton />
             </div>
             </div>
         </Modal>

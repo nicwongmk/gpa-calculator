@@ -1,19 +1,16 @@
-import { useEffect } from 'react';
-import useLocalStorage from '../../../hooks/useLocalStorage';
+
+import { useContext } from 'react';
 import PointInput from "../../UI/input/pointInput";
 import styles from '../../../styles/components/header/setting/setting.module.css';
+import MaxGPAContext from '../../../context/maxGPAContext';
+import DecimalPlacesContext from '../../../context/decimalPlacesContext';
+import RoundingContext from '../../../context/roundingContext';
 
-const OtherSetting = ({ receiveSelectedmaxGPASetting, receiveSelectedDecimalPlacesSetting, receiveSelectedRound, sendMaxGPA, sendDecimalPlaces}) => {
-    const [maxGPA, setMaxGPA] = useLocalStorage("maxGPA", 4.00);
-    const [decimalPlaces, setDecimalPlaces] = useLocalStorage("decimalPlaces", 2);
-    const [round, setRound] = useLocalStorage("round", "roundTo");
 
-    useEffect(() => setMaxGPA(receiveSelectedmaxGPASetting), [receiveSelectedmaxGPASetting]);
-    useEffect(() => setDecimalPlaces(receiveSelectedDecimalPlacesSetting), [receiveSelectedDecimalPlacesSetting]);
-    useEffect(() => setRound(receiveSelectedRound), [receiveSelectedRound]);
-
-    sendDecimalPlaces(decimalPlaces);
-    sendMaxGPA(maxGPA);
+const OtherSetting = () => {
+    const {maxGPA, setMaxGPA} = useContext(MaxGPAContext);
+    const {decimalPlaces, setDecimalPlaces} = useContext(DecimalPlacesContext);
+    const {rounding, setRounding} = useContext(RoundingContext);
 
     return (
         <>
@@ -42,11 +39,11 @@ const OtherSetting = ({ receiveSelectedmaxGPASetting, receiveSelectedDecimalPlac
             <div className={ styles.roundContainer }>
                 <p>Round: </p>
                 <label htmlFor="roundTo">Round To</label>
-                <input type="radio" id="roundTo" name="round" value="roundTo" checked={round === "roundTo"} onChange={(event) => setRound(event.target.value)}/>
+                <input type="radio" id="roundTo" name="round" value="roundTo" checked={rounding === "roundTo"} onChange={(event) => setRounding(event.target.value)}/>
                 <label htmlFor="roundUp">Round Up</label>
-                <input type="radio" id="roundUp" name="round" value="roundUp" checked={round === "roundUp"} onChange={(event) => setRound(event.target.value)}/>
+                <input type="radio" id="roundUp" name="round" value="roundUp" checked={rounding === "roundUp"} onChange={(event) => setRounding(event.target.value)}/>
                 <label htmlFor="roundDown">Round Down</label>
-                <input type="radio" id="roundDown" name="round" value="roundDown" checked={round === "roundDown"} onChange={(event) => setRound(event.target.value)}/>
+                <input type="radio" id="roundDown" name="round" value="roundDown" checked={rounding === "roundDown"} onChange={(event) => setRounding(event.target.value)}/>
             </div>
         </>
     );

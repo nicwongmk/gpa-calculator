@@ -1,9 +1,15 @@
 import { useContext } from "react";
 import GradeContext from "../../../context/gradeContext";
+import MaxGPAContext from "../../../context/maxGPAContext";
+import DecimalPlacesContext from "../../../context/decimalPlacesContext";
+import RoundingContext from "../../../context/roundingContext";
 import MainButton from "../../UI/button/mainButton";
 
-const SelectionButton = ({ sendmaxGPASetting, sendDecimalPlaces, sendRound }) => {
+const SelectionButton = () => {
     const {setGradeList} = useContext(GradeContext);
+    const {setMaxGPA} = useContext(MaxGPAContext);
+    const {setDecimalPlaces} = useContext(DecimalPlacesContext);
+    const {setRounding} = useContext(RoundingContext);
 
     const standard1 = [{
         gradeList: [
@@ -70,23 +76,23 @@ const SelectionButton = ({ sendmaxGPASetting, sendDecimalPlaces, sendRound }) =>
 
     const setStandard1Hander = () => {
         setGradeList(standard1[0].gradeList);
-        sendmaxGPASetting(standard1[0].maxGPA);
-        sendDecimalPlaces(standard1[0].decimalPlaces);
-        sendRound(standard1[0].round);
+        setMaxGPA(standard1[0].maxGPA);
+        setDecimalPlaces(standard1[0].decimalPlaces);
+        setRounding(standard1[0].round);
     }
 
     const setStandard2Hander = () => {
         setGradeList(standard2[0].gradeList);
-        sendmaxGPASetting(standard2[0].maxGPA);
-        sendDecimalPlaces(standard2[0].decimalPlaces);
-        sendRound(standard2[0].round);
+        setMaxGPA(standard2[0].maxGPA);
+        setDecimalPlaces(standard2[0].decimalPlaces);
+        setRounding(standard2[0].round);
     }
 
     const setStandard3Hander = () => {
         setGradeList(standard3[0].gradeList);
-        sendmaxGPASetting(standard3[0].maxGPA);
-        sendDecimalPlaces(standard3[0].decimalPlaces);
-        sendRound(standard3[0].round);
+        setMaxGPA(standard3[0].maxGPA);
+        setDecimalPlaces(standard3[0].decimalPlaces);
+        setRounding(standard3[0].round);
     }
 
     return (

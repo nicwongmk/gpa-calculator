@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import GradeContext from '../../../context/gradeContext';
 import Grade from './grade';
 

@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import DecimalPlacesContext from '../../../context/decimalPlacesContext';
+import MaxGPAContext from '../../../context/maxGPAContext';
 import styles from '../../../styles/components/main/quickCalculation/quickCalculation.module.css';
 import RegularInput from '../../UI/input/regularInput';
 import CourseList from './courseList';
 
-const QuickCalculation = ({ decimalPlaces, maxGPA }) => {
+const QuickCalculation = () => {
+    const {maxGPA} = useContext(MaxGPAContext);
+    const {decimalPlaces} = useContext(DecimalPlacesContext);
     const [cumulativeGPA, setCumulativeGPA] = useState(0);
     const [totalCredits, setTotalCredits] = useState(0);
     const [currentGPA, setCurrentGPA] = useState(0);
