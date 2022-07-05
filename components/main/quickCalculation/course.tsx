@@ -28,13 +28,13 @@ const Course = ({ courseID, courseData, changeCourseDataHandler, deleteCourseHan
             />
             <RegularInput 
                 className={ styles.dataInput } 
-                type={""} 
+                type={"text"} 
                 placeholder={"Credits"} 
                 max={0} 
                 min={0} 
                 step={0} 
                 value={ courseData.credits } 
-                onChange={(event) => changeCourseDataHandler(courseData.name, courseData.grade, parseInt(event.target.value), courseID)} 
+                onChange={(event) => changeCourseDataHandler(courseData.name, courseData.grade, (parseInt(event.target.value) || 0), courseID)} 
             />
             <RoundButton onClick={() => deleteCourseHandler(courseID) }>-</RoundButton>
         </li>

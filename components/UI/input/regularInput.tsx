@@ -5,6 +5,7 @@ type props = {
     className: any,
     type: string,
     placeholder: string,
+    name: string,
     max: number,
     min: number,
     step: number,
@@ -12,11 +13,12 @@ type props = {
     onChange: any
 }
 
-const RegularInput = ({ className, type, placeholder, max, min, step, value, onChange }:props) => {
+const RegularInput = ({ className, name, type, placeholder, max, min, step, value, onChange }:props) => {
     return (
         <input 
             className={ `${className} ${styles.regularInput}` }
             type={ type }
+            name={ name }
             placeholder={ placeholder }
             max={ max }
             min={ min }

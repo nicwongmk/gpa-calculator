@@ -19,7 +19,7 @@ const Grade = ({ pointChangeHandler, grade, point }:Props) => {
                 min={0} 
                 step={0.01} 
                 value={point} 
-                onChange={(event) => {
+                onChange={(event: { target: { value: string; }; }) => {
                     pointChangeHandler({ grade: grade, point: parseFloat(event.target.value) || 0})
                 }} 
             />
