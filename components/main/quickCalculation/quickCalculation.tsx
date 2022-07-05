@@ -3,11 +3,11 @@ import styles from '../../../styles/components/main/quickCalculation/quickCalcul
 import RegularInput from '../../UI/input/regularInput';
 import CourseList from './courseList';
 
-const QuickCalculation = ({ dataFromSetting, decimalPlaces }) => {
+const QuickCalculation = ({ dataFromSetting, decimalPlaces, maxGPA }) => {
     const [cumulativeGPA, setCumulativeGPA] = useState(0);
     const [totalCredits, setTotalCredits] = useState(0);
 
-    const showGPA = (totalCredits === 0) ? 0 : (cumulativeGPA / totalCredits).toFixed(decimalPlaces);
+    const showGPA = (totalCredits === 0) ? 0 : Math.min((cumulativeGPA / totalCredits), maxGPA).toFixed(decimalPlaces);
 
     return (
         <div className={ styles.container }>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import useLocalStorage from '../../../hooks/useLocalStorage';
 import styles from '../../../styles/components/main/quickCalculation/quickCalculation.module.css';
 import MainButton from "../../UI/button/mainButton";
 import Course from './course';

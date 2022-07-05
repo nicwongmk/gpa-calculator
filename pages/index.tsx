@@ -6,6 +6,7 @@ import Footer from '../components/footer/footer';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
+  const [maxGPA, setMaxGPA] = useLocalStorage("maxGPA", 4.00);
   const [decimalPlaces, setDecimalPlaces] = useLocalStorage("decimalPlaces", 2);
   const [dataFromSetting, setDataFromSetting] = useLocalStorage("gradeList", [
     { grade: "A+", point: 4},
@@ -29,8 +30,9 @@ const Home: NextPage = () => {
         <Header 
           dataFromSetting={ (dataFromSetting) => setDataFromSetting(dataFromSetting) } 
           decimalPlaces={ (decimalPlaces) => setDecimalPlaces(decimalPlaces)}
+          maxGPA={ (maxGPA) => setMaxGPA(maxGPA) }
         />
-        <Main dataFromSetting={ dataFromSetting } decimalPlaces={ decimalPlaces }/>
+        <Main dataFromSetting={ dataFromSetting } decimalPlaces={ decimalPlaces } maxGPA={ maxGPA }/>
         <Footer />
     </div>
   );
