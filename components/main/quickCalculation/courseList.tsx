@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import GradeContext from '../../../context/gradeContext';
 import styles from '../../../styles/components/main/quickCalculation/quickCalculation.module.css';
 import MainButton from "../../UI/button/mainButton";
 import Course from './course';
 
-const CourseList = ({ dataFromSetting, cumulativeEnteredGPA, totalEnteredCredits }) => {
+const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
+    const {gradeList} = useContext(GradeContext);
     const [course, setCourse] = useState([]);
 
     useEffect(() => {
@@ -31,7 +33,7 @@ const CourseList = ({ dataFromSetting, cumulativeEnteredGPA, totalEnteredCredits
     };
 
     const cumulativeEnteredGPACalculation = () => ((course
-        .map(courseData => courseData.grade === "" ? 0 : dataFromSetting
+        .map(courseData => courseData.grade === "" ? 0 : gradeList
         .find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits))
         .reduce((prev, points) => prev + points, 0)
     );

@@ -2,12 +2,12 @@ import styles from '../../../styles/components/UI/input.module.css'
 
 type props = {
 
-    className: any,
+    className?: any,
     type: string,
-    placeholder: string,
-    max: number,
-    min: number,
-    step: number,
+    placeholder?: string,
+    max?: number,
+    min?: number,
+    step?: number,
     value: any,
     onChange: any
 }

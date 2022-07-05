@@ -1,7 +1,8 @@
 import styles from '../../styles/components/main/main.module.css';
 import QuickCalculation from './quickCalculation/quickCalculation';
 
-const Main = ({ dataFromSetting, decimalPlaces, maxGPA }) => {
+const Main = ({ decimalPlaces, maxGPA }) => {
+
     return (
         <main>
             <div className={ styles.main }>
@@ -16,7 +17,6 @@ const Main = ({ dataFromSetting, decimalPlaces, maxGPA }) => {
                     <p>Try the quick calculator</p>
                 </section>
                 <QuickCalculation 
-                    dataFromSetting={ dataFromSetting }
                     decimalPlaces={ decimalPlaces }
                     maxGPA={ maxGPA }
                 />

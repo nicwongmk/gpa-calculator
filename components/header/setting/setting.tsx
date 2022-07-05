@@ -5,22 +5,7 @@ import OtherSetting from "./otherSetting";
 import SelectionButton from "./selectionButton";
 import styles from '../../../styles/components/header/setting/setting.module.css';
 
-const Setting = ({ closeSetting, dataFromSetting, decimalPlaces, maxGPA }) => {
-    const[selectedGradeSetting, setSelectedGradeSetting] = useLocalStorage("gradeList", [
-        { grade: "A+", point: 4},
-        { grade: "A", point: 4},
-        { grade: "A-", point: 3.7},
-        { grade: "B+", point: 3.3},
-        { grade: "B", point: 3},
-        { grade: "B-", point: 2.7},
-        { grade: "C+", point: 2.3},
-        { grade: "C", point: 2},
-        { grade: "C-", point: 1.7},
-        { grade: "D+", point: 1.3},
-        { grade: "D", point: 1},
-        { grade: "D-", point: 0.7},
-        { grade: "F", point: 0},
-    ]);
+const Setting = ({ closeSetting, decimalPlaces, maxGPA }) => {
     const [selectedmaxGPASetting, setSelectedmaxGPASetting] = useLocalStorage("maxGPA", 4.00);
     const [selectedDecimalPlacesSetting, setSelectedDecimalPlacesSetting] = useLocalStorage("decimalPlaces", 2);
     const [selectedRoundSetting, setSelctedRoundSetting] = useLocalStorage("round", "roundTo");
@@ -33,7 +18,7 @@ const Setting = ({ closeSetting, dataFromSetting, decimalPlaces, maxGPA }) => {
             </div>
             <div className={ styles.subcontainer }>
             <div className={ styles.gpaSetting }>
-                <GradeSetting receiveSelectedSetting={ selectedGradeSetting } dataFromSetting={ dataFromSetting }/>
+                <GradeSetting />
             </div>
             <div className={ styles.otherSetting }>
                 <OtherSetting 
@@ -46,7 +31,6 @@ const Setting = ({ closeSetting, dataFromSetting, decimalPlaces, maxGPA }) => {
             </div>
             <div className={ styles.selectionButton }>
                 <SelectionButton 
-                    sendGradeSetting={(gradeList) => setSelectedGradeSetting(gradeList)} 
                     sendmaxGPASetting={(maxGPA) => setSelectedmaxGPASetting(maxGPA)} 
                     sendDecimalPlaces={(decimalPlaces) => setSelectedDecimalPlacesSetting(decimalPlaces)}
                     sendRound={(round) => setSelctedRoundSetting(round)} 

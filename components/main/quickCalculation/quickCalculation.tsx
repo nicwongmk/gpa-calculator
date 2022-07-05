@@ -3,7 +3,7 @@ import styles from '../../../styles/components/main/quickCalculation/quickCalcul
 import RegularInput from '../../UI/input/regularInput';
 import CourseList from './courseList';
 
-const QuickCalculation = ({ dataFromSetting, decimalPlaces, maxGPA }) => {
+const QuickCalculation = ({ decimalPlaces, maxGPA }) => {
     const [cumulativeGPA, setCumulativeGPA] = useState(0);
     const [totalCredits, setTotalCredits] = useState(0);
     const [currentGPA, setCurrentGPA] = useState(0);
@@ -21,12 +21,11 @@ const QuickCalculation = ({ dataFromSetting, decimalPlaces, maxGPA }) => {
             </div>
             <div className={ styles.inputContainer }>
                 <p>Current GPA:</p>
-                <RegularInput className={undefined} type={'number'} placeholder={''} max={0} min={0} step={0.01} value={currentGPA} onChange={(event) => setCurrentGPA(parseFloat(event.target.value))} name={''} />
+                <RegularInput  type={'number'} max={0} min={0} step={0.01} value={currentGPA} onChange={(event) => setCurrentGPA(parseFloat(event.target.value))} name={''} />
                 <p>Current Credits:</p>
-                <RegularInput className={undefined} type={'text'} placeholder={''} max={0} min={0} step={0} value={currentCredits || 0} onChange={(event) => setCurrentCredits(parseInt(event.target.value))} name={''} />
+                <RegularInput type={'text'} max={0} min={0} step={0} value={currentCredits || 0} onChange={(event) => setCurrentCredits(parseInt(event.target.value))} name={''} />
             </div>
             <CourseList
-                dataFromSetting = { dataFromSetting }
                 cumulativeEnteredGPA={ (cumulativeEnteredGPA) => setCumulativeGPA(cumulativeEnteredGPA) }
                 totalEnteredCredits={ (totalEnteredCredits) => setTotalCredits(totalEnteredCredits) }
             />
