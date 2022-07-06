@@ -5,7 +5,7 @@ import DecimalPlacesContext from "../../../context/decimalPlacesContext";
 import RoundingContext from "../../../context/roundingContext";
 import MainButton from "../../UI/button/mainButton";
 
-const SelectionButton = () => {
+const SelectionButton = ({ className }) => {
     const {setGradeList} = useContext(GradeContext);
     const {setMaxGPA} = useContext(MaxGPAContext);
     const {setDecimalPlaces} = useContext(DecimalPlacesContext);
@@ -96,14 +96,14 @@ const SelectionButton = () => {
     }
 
     return (
-        <>
+        <div className={ className }>
             <MainButton onClick={ setStandard1Hander }>Standard 1 (Default)</MainButton>
             <p>Example: B+ : 3.30 | Max: 4.0 | Place: 2</p>
             <MainButton onClick={ setStandard2Hander }>Standard 2</MainButton>
             <p>Example: B+ : 3.33 | Max: 4.0 | Place: 2</p>
             <MainButton onClick={ setStandard3Hander }>Standard 3</MainButton>
             <p>Example: B+ : 3.30 | Max: 4.3 | Place: 2</p>
-        </>
+        </div>
     )
 }
 

@@ -15,7 +15,7 @@ const Header = () => {
 
     return (
         <header>
-            <div className={ styles.container }>
+            <nav className={ styles.container }>
                 <h1>GPA Calculator</h1>
                 <div className={ styles.buttonContainer }>
                     <MainButton className={ styles.mainButton } onClick={() => setShowSetting((prev) => !prev)}>Setting</MainButton>
@@ -26,7 +26,7 @@ const Header = () => {
                     { showAbout && <About closeAbout={() => setShowAbout((prev) => !prev)}/> }
                     { showContact && <Contact closeContact={() => setShowContact((prev) => !prev)}/> }
                 </div>
-            </div>
+            </nav>
             { showNavbar && 
                 <RightNavbar 
                     showNavbar={() => setShowNavbar((prev) => !prev)} 

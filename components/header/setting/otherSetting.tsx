@@ -7,13 +7,13 @@ import DecimalPlacesContext from '../../../context/decimalPlacesContext';
 import RoundingContext from '../../../context/roundingContext';
 
 
-const OtherSetting = () => {
+const OtherSetting = ({ className }) => {
     const {maxGPA, setMaxGPA} = useContext(MaxGPAContext);
     const {decimalPlaces, setDecimalPlaces} = useContext(DecimalPlacesContext);
     const {rounding, setRounding} = useContext(RoundingContext);
 
     return (
-        <>
+        <div className={ className }>
             <p>Max CGPA: </p>
             <PointInput  
                 type={"number"} 
@@ -40,7 +40,7 @@ const OtherSetting = () => {
                 <label htmlFor="roundDown">Round Down</label>
                 <input type="radio" id="roundDown" name="round" value="roundDown" checked={rounding === "roundDown"} onChange={(event) => setRounding(event.target.value)}/>
             </div>
-        </>
+        </div>
     );
 };
 

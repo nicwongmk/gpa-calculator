@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import GradeContext from '../../../context/gradeContext';
 import Grade from './grade';
 
-const GradeSetting = () => {
+const GradeSetting = ({ className }) => {
     const {gradeList, setGradeList} = useContext(GradeContext);
 
     const setPointHandler = (point: number, key: number): void => {
@@ -14,7 +14,7 @@ const GradeSetting = () => {
     };
 
     return (
-        <ul>
+        <ul className={ className }>
             { gradeList.map((gradeList: any, index: number) => (
                 <Grade 
                     key={index}

@@ -35,12 +35,12 @@ const QuickCalculation = () => {
     
     return (
         <div className={ styles.container }>
-            <div className={ styles.resultContainer }>
+            <header className={ styles.resultContainer }>
                 <p>CGPA:</p>
                 <p>{ showGPA(rounding) }</p>
                 <p>Total Credits:</p>
                 <p>{ (totalCredits + currentCredits) }</p>
-            </div>
+            </header>
             <div className={ styles.inputContainer }>
                 <p>Current GPA:</p>
                 <RegularInput  type={'number'} max={0} min={0} step={0.01} value={currentGPA} onChange={(event) => setCurrentGPA(parseFloat(event.target.value))} name={''} />
