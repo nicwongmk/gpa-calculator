@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import DecimalPlacesContext from '../../../context/decimalPlacesContext';
 import MaxGPAContext from '../../../context/maxGPAContext';
+import RoundingContext from '../../../context/roundingContext';
 import styles from '../../../styles/components/main/quickCalculation/quickCalculation.module.css';
 import RegularInput from '../../UI/input/regularInput';
 import CourseList from './courseList';
@@ -8,18 +9,35 @@ import CourseList from './courseList';
 const QuickCalculation = () => {
     const {maxGPA} = useContext(MaxGPAContext);
     const {decimalPlaces} = useContext(DecimalPlacesContext);
+    const {rounding} = useContext(RoundingContext);
     const [cumulativeGPA, setCumulativeGPA] = useState(0);
     const [totalCredits, setTotalCredits] = useState(0);
     const [currentGPA, setCurrentGPA] = useState(0);
     const [currentCredits, setCurrentCredits] = useState(0);
 
-    const showGPA = (totalCredits === 0 && currentCredits === 0) ? 0 : Math.min(((cumulativeGPA + currentGPA * currentCredits)  / (totalCredits + currentCredits )), maxGPA).toFixed(decimalPlaces);
+    const showGPA = (rounding: string): number => {
+        if (totalCredits === 0 && currentCredits === 0) return 0;
 
+        const gpaAfterMax: number = Math.min(((cumulativeGPA + currentGPA * currentCredits)  / (totalCredits + currentCredits )), maxGPA);
+        const decimalPlacesForFn = Math.pow(10, decimalPlaces) / Math.pow(10, decimalPlaces);
+        switch(rounding) {
+            case "roundTo":
+                return parseFloat(Math.min(gpaAfterMax)
+                .toFixed(decimalPlaces));
+            case "roundUp":
+                return Math.ceil((gpaAfterMax) * decimalPlacesForFn);
+            case "roundDown":
+                return Math.floor((gpaAfterMax) * decimalPlacesForFn);
+            case "default":
+                return 0;
+        }
+    };
+    
     return (
         <div className={ styles.container }>
             <div className={ styles.resultContainer }>
                 <p>CGPA:</p>
-                <p>{ showGPA }</p>
+                <p>{ showGPA(rounding) }</p>
                 <p>Total Credits:</p>
                 <p>{ (totalCredits + currentCredits) }</p>
             </div>

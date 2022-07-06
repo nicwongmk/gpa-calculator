@@ -15,10 +15,8 @@ const OtherSetting = () => {
     return (
         <>
             <p>Max CGPA: </p>
-            <PointInput 
-                className={undefined} 
+            <PointInput  
                 type={"number"} 
-                placeholder={""} 
                 max={0} 
                 min={0} 
                 step={0.001} 
@@ -27,10 +25,7 @@ const OtherSetting = () => {
             />
             <p>Decimal places: </p>
             <PointInput 
-                className={undefined} 
                 type={"number"} 
-                placeholder={""} 
-                max={0} 
                 min={0} 
                 step={1} 
                 value={decimalPlaces} 
