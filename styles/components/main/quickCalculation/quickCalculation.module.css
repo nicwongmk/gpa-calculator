@@ -92,3 +92,8 @@
     margin-bottom: 1rem;
     width: 5rem;
 }
+
+.courseList .invalidInput {
+    background-color: pink;
+    content: "hello";
+}

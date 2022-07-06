@@ -7,7 +7,7 @@ type Props = {
     point: number,
 }
 
-const Grade = ({ pointChangeHandler, grade, point }:Props) => {
+const Grade = ({ pointChangeHandler, grade, point }: Props) => {
     return (
         <li className={ styles.container }>
             <p>{grade}</p>

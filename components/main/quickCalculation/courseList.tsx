@@ -7,6 +7,7 @@ import Course from './course';
 const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
     const {gradeList} = useContext(GradeContext);
     const [course, setCourse] = useState([]);
+    const [invalidInput, setInvalidInput] = useState([0, false]);
 
     useEffect(() => {
         cumulativeEnteredGPA(cumulativeEnteredGPACalculation);
@@ -25,15 +26,26 @@ const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
     };
 
     const changeCourseDataHandler = (name, grade, credits, index) => {
-        const clone = [...course];
-        clone[index].name = name;
-        clone[index].grade = grade;
-        clone[index].credits = credits;
-        setCourse(clone);
+        if (grade != "" && gradeList.find(gradeList => (gradeList.grade === grade)) === undefined ) {
+                setInvalidInput([index, true]);
+                const clone =[...course];
+                clone[index].grade = "";
+                setCourse(clone);
+        } else {
+            setInvalidInput([index, false]);
+            const clone = [...course];
+            clone[index].name = name;
+            clone[index].grade = grade;
+            clone[index].credits = credits;
+            setCourse(clone);
+        }
     };
+
+    console.log("rerender");
 
     const cumulativeEnteredGPACalculation = () => ((course
         .map(courseData => courseData.grade === "" ? 0 : gradeList
+        .find(gradeList => (gradeList.grade === courseData.grade)) === undefined ? 0 : gradeList
         .find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits))
         .reduce((prev, points) => prev + points, 0)
     );
@@ -51,6 +63,7 @@ const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
                         courseData={ courseData }
                         changeCourseDataHandler={  changeCourseDataHandler }
                         deleteCourseHandler={ deleteCourseHandler } 
+                        invalidInput={ invalidInput }
                     />) 
                 }
             </ol>
