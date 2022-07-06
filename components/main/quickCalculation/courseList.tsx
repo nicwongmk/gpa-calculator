@@ -4,6 +4,13 @@ import styles from '../../../styles/components/main/quickCalculation/quickCalcul
 import MainButton from "../../UI/button/mainButton";
 import Course from './course';
 
+interface ChangeCourseDataHandler {
+    name: string,
+    grade: string,
+    credits: number,
+    index: number,
+}
+
 const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
     const {gradeList} = useContext(GradeContext);
     const [course, setCourse] = useState([]);
@@ -14,18 +21,18 @@ const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
         totalEnteredCredits(totalEnteredCreditsCalculation);
     });
 
-    const addCourseHandler = () => {
+    const addCourseHandler = (): void => {
         setCourse((prev) => [...prev, { name:"", grade:"", credits: 0}]);
     };
 
-    const deleteCourseHandler = (index) => {
+    const deleteCourseHandler = (index: number): void => {
         setCourse([
             ...course.slice(0, index),
             ...course.slice(index + 1)
         ]);
     };
 
-    const changeCourseDataHandler = (name, grade, credits, index) => {
+    const changeCourseDataHandler = ({name, grade, credits, index}: ChangeCourseDataHandler): void => {
         if (grade != "" && gradeList.find(gradeList => (gradeList.grade === grade)) === undefined ) {
                 setInvalidInput([index, true]);
                 const clone =[...course];
@@ -41,16 +48,14 @@ const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
         }
     };
 
-    console.log("rerender");
-
-    const cumulativeEnteredGPACalculation = () => ((course
+    const cumulativeEnteredGPACalculation = (): number => ((course
         .map(courseData => courseData.grade === "" ? 0 : gradeList
         .find(gradeList => (gradeList.grade === courseData.grade)) === undefined ? 0 : gradeList
         .find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits))
         .reduce((prev, points) => prev + points, 0)
     );
 
-    const totalEnteredCreditsCalculation = () => (course.reduce((prev, courseData) => prev + courseData.credits, 0));
+    const totalEnteredCreditsCalculation = (): number => (course.reduce((prev, courseData) => prev + courseData.credits, 0));
 
     return (
         <>

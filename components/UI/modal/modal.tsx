@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import Backdrop from '../backdrop/backdrop';
 import styles from '../../../styles/components/UI/modal.module.css'
 
@@ -10,12 +9,12 @@ type Props = {
 
 const Modal = ({ className, closeModal, children }: Props) => {
     return (
-        <Fragment>
+        <>
             <Backdrop hideBackdrop={ closeModal } />
             <div className={ `${className} ${styles.modal}` }>  
                 { children }
             </div>
-        </Fragment>
+        </>
     );
 };
 

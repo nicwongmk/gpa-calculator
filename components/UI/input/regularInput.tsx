@@ -2,8 +2,8 @@ import styles from '../../../styles/components/UI/input.module.css'
 
 type props = {
 
-    className?: any,
-    type: string,
+    className?: string,
+    type?: string,
     placeholder?: string,
     name: string,
     max?: number,

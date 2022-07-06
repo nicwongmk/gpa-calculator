@@ -13,15 +13,15 @@ const Setting = ({ closeSetting }) => {
                 <p>Please customise the settings through the pink boxes</p>
             </div>
             <div className={ styles.subcontainer }>
-            <div className={ styles.gpaSetting }>
-                <GradeSetting />
-            </div>
-            <div className={ styles.otherSetting }>
-                <OtherSetting />
-            </div>
-            <div className={ styles.selectionButton }>
-                <SelectionButton />
-            </div>
+                <div className={ styles.gpaSetting }>
+                    <GradeSetting />
+                </div>
+                <div className={ styles.otherSetting }>
+                    <OtherSetting />
+                </div>
+                <div className={ styles.selectionButton }>
+                    <SelectionButton />
+                </div>
             </div>
         </Modal>
     );

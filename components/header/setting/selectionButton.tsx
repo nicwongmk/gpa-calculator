@@ -74,21 +74,21 @@ const SelectionButton = () => {
         round: "roundTo"
     }];
 
-    const setStandard1Hander = () => {
+    const setStandard1Hander = (): void => {
         setGradeList(standard1[0].gradeList);
         setMaxGPA(standard1[0].maxGPA);
         setDecimalPlaces(standard1[0].decimalPlaces);
         setRounding(standard1[0].round);
     }
 
-    const setStandard2Hander = () => {
+    const setStandard2Hander = (): void => {
         setGradeList(standard2[0].gradeList);
         setMaxGPA(standard2[0].maxGPA);
         setDecimalPlaces(standard2[0].decimalPlaces);
         setRounding(standard2[0].round);
     }
 
-    const setStandard3Hander = () => {
+    const setStandard3Hander = (): void => {
         setGradeList(standard3[0].gradeList);
         setMaxGPA(standard3[0].maxGPA);
         setDecimalPlaces(standard3[0].decimalPlaces);

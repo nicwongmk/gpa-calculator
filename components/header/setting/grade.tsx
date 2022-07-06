@@ -1,20 +1,18 @@
 import styles from '../../../styles/components/header/setting/grade.module.css';
 import PointInput from '../../UI/input/pointInput';
 
-type Props = {
+interface Props {
     pointChangeHandler: any,
     grade: string,
     point: number,
 }
 
-const Grade = ({ pointChangeHandler, grade, point }: Props) => {
+const Grade = ({ pointChangeHandler, grade, point }: Props): JSX.Element => {
     return (
         <li className={ styles.container }>
             <p>{grade}</p>
             <PointInput 
-                className={undefined} 
                 type={"number"} 
-                placeholder={''} 
                 max={100} 
                 min={0} 
                 step={0.01} 

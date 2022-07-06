@@ -5,7 +5,7 @@ import Grade from './grade';
 const GradeSetting = () => {
     const {gradeList, setGradeList} = useContext(GradeContext);
 
-    const setPointHandler = (point: number, key: number) => {
+    const setPointHandler = (point: number, key: number): void => {
         setGradeList((prev: []) => [
             ...prev.slice(0, key),
             point,

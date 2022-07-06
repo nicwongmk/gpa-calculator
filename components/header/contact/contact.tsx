@@ -16,12 +16,12 @@ const Contact = ({ closeContact }) => {
         e.preventDefault();
     
         emailjs.sendForm('service_rt65s4j', 'template_6dwkg3c', form.current, 'O76BE7y3tr7oI7kVG')
-          .then((result) => {
+          .then(() => {
               alert("Message has been sent successfully!");
               setName("");
               setEmail("");
               setMessage("");
-          }, (error) => {
+          }, () => {
               alert("Message didn't send");
           });
     };

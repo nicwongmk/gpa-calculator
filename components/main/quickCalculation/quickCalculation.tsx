@@ -19,7 +19,7 @@ const QuickCalculation = () => {
         if (totalCredits === 0 && currentCredits === 0) return 0;
 
         const gpaAfterMax: number = Math.min(((cumulativeGPA + currentGPA * currentCredits)  / (totalCredits + currentCredits )), maxGPA);
-        const decimalPlacesForFn = Math.pow(10, decimalPlaces) / Math.pow(10, decimalPlaces);
+        const decimalPlacesForFn: number = Math.pow(10, decimalPlaces) / Math.pow(10, decimalPlaces);
         switch(rounding) {
             case "roundTo":
                 return parseFloat(Math.min(gpaAfterMax)
@@ -48,8 +48,8 @@ const QuickCalculation = () => {
                 <RegularInput type={'text'} max={0} min={0} step={0} value={currentCredits || 0} onChange={(event) => setCurrentCredits(parseInt(event.target.value))} name={''} />
             </div>
             <CourseList
-                cumulativeEnteredGPA={ (cumulativeEnteredGPA) => setCumulativeGPA(cumulativeEnteredGPA) }
-                totalEnteredCredits={ (totalEnteredCredits) => setTotalCredits(totalEnteredCredits) }
+                cumulativeEnteredGPA={ (cumulativeEnteredGPA: number) => setCumulativeGPA(cumulativeEnteredGPA) }
+                totalEnteredCredits={ (totalEnteredCredits: number) => setTotalCredits(totalEnteredCredits) }
             />
         </div>
     );
