@@ -5,7 +5,7 @@ type props = {
     className?: string,
     type?: string,
     placeholder?: string,
-    name: string,
+    name?: string,
     max?: number,
     min?: number,
     step?: number,

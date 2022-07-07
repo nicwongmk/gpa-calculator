@@ -4,12 +4,7 @@ import styles from '../../../styles/components/main/quickCalculation/quickCalcul
 import MainButton from "../../UI/button/mainButton";
 import Course from './course';
 
-interface ChangeCourseDataHandler {
-    name: string,
-    grade: string,
-    credits: number,
-    index: number,
-}
+
 
 const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
     const {gradeList} = useContext(GradeContext);
@@ -32,12 +27,12 @@ const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
         ]);
     };
 
-    const changeCourseDataHandler = ({name, grade, credits, index}: ChangeCourseDataHandler): void => {
+    const changeCourseDataHandler = (name: string, grade: string, credits: number, index: number) => {
         if (grade != "" && gradeList.find(gradeList => (gradeList.grade === grade)) === undefined ) {
-                setInvalidInput([index, true]);
-                const clone =[...course];
-                clone[index].grade = "";
-                setCourse(clone);
+            setInvalidInput([index, true]);
+            const clone =[...course];
+            clone[index].grade = "";
+            setCourse(clone);
         } else {
             setInvalidInput([index, false]);
             const clone = [...course];
