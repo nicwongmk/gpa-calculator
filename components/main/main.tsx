@@ -1,7 +1,7 @@
 import styles from '../../styles/components/main/main.module.css';
 import QuickCalculation from './quickCalculation/quickCalculation';
 
-const Main = () => {
+const Main: React.FC = () => {
 
     return (
         <main>
