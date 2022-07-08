@@ -32,7 +32,7 @@
     overflow: hidden;
 }
 
-.quickCalculation h2 {
+.quickCalculation section h2 {
     font-size: min(max(3vw, 25px), 65px);
     color: rgb(22, 22, 60);
     margin: 0;
@@ -41,7 +41,7 @@
     position: relative;
 }
 
-.quickCalculation p {
+.quickCalculation section p {
     font-size: min(max(2vw, 25px), 43px);
     color: rgb(22, 22, 60);
     margin-top: 1rem;
@@ -79,4 +79,23 @@
         font-size: min(max(4vw, 20px), 25px);
         padding-left: 10%;
     }
+}
+
+.comprehensiveCalculation {
+    cursor: default;
+    height: 100vh;
+}
+
+.comprehensiveCalculation section h2 {
+    margin: 0;
+    font-size: min(max(3vw, 25px), 50px);
+    color: rgb(22, 22, 60);
+    text-align: center;
+}
+
+.comprehensiveCalculation section P {
+    margin: 0;
+    font-size: min(max(3vw, 20px), 25px);
+    color: rgb(22, 22, 60);
+    text-align: center;
 }

@@ -1,10 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import GradeContext from '../../../context/gradeContext';
-import styles from '../../../styles/components/main/quickCalculation/quickCalculation.module.css';
+import styles from '../../../styles/components/main/quickCalculation.module.css';
 import MainButton from "../../UI/button/mainButton";
 import Course from './course';
-
-
 
 const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
     const {gradeList} = useContext(GradeContext);

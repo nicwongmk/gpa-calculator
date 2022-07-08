@@ -2,9 +2,9 @@ import { useContext, useState } from 'react';
 import DecimalPlacesContext from '../../../context/decimalPlacesContext';
 import MaxGPAContext from '../../../context/maxGPAContext';
 import RoundingContext from '../../../context/roundingContext';
-import styles from '../../../styles/components/main/quickCalculation/quickCalculation.module.css';
 import RegularInput from '../../UI/input/regularInput';
 import CourseList from './courseList';
+import styles from '../../../styles/components/main/quickCalculation.module.css';
 
 const QuickCalculation = () => {
     const {maxGPA} = useContext(MaxGPAContext);

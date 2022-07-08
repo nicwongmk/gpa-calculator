@@ -1,4 +1,4 @@
-import styles from '../../../styles/components/main/quickCalculation/quickCalculation.module.css';
+import styles from '../../../styles/components/main/quickCalculation.module.css';
 import RoundButton from "../../UI/button/roundButton";
 import RegularInput from "../../UI/input/regularInput";
 

@@ -1,5 +1,6 @@
-import styles from '../../styles/components/main/main.module.css';
 import QuickCalculation from './quickCalculation/quickCalculation';
+import ComprehensiveCalculation from './comprehensiveCalculation/comprehensiveCalculation';
+import styles from '../../styles/components/main/main.module.css';
 
 const Main: React.FC = () => {
 
@@ -19,7 +20,11 @@ const Main: React.FC = () => {
                 <QuickCalculation />
             </div>
             <div className={ styles.comprehensiveCalculation }>
-
+                <section>
+                    <h2>Comprehensive GPA Calculator</h2>
+                    <p>Weighted GPA | Course manager | GPA Visualisation</p>
+                </section>
+                <ComprehensiveCalculation />
             </div>
         </main>
     )

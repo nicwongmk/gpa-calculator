@@ -1,0 +1,104 @@
+.comprehensiveCalculation {
+    display: grid;
+    grid-template-columns: 12rem 28rem auto;
+    grid-template-rows: repeat(2, 1fr);
+    width: 75rem;
+    height: 40rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: rgb(22, 22, 60) solid 2px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.comprehensiveCalculation .semesterList button {
+    font-weight: bold;
+    background-color: rgb(251, 229, 232);
+    color: black;
+}
+
+.comprehensiveCalculation .semesterList button:hover {
+    background-color: rgb(246, 176, 186);
+}
+
+.semesterList {
+    grid-area: 1 / 1 / 3 / 2;
+    border-right: black solid 1px;
+}
+
+.semesterList select {
+    height: 90%;
+    width: 100%;
+    border: 0;
+    background-color: transparent;
+}
+
+.semesterList select:focus {
+    outline: none;
+}
+
+.semesterList option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 50px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    transition: 0.1s;
+}
+
+.semesterList option:hover {
+    background-color: rgb(251, 229, 232);
+}
+
+.courseList {
+    grid-area: 1 / 2 / 3 / 3;
+    border-right: black solid 1px;
+}
+
+.comprehensiveCalculation .courseList button {
+    font-weight: bold;
+    background-color: rgb(251, 229, 232);
+    color: black;
+}
+
+.comprehensiveCalculation .courseList button:hover {
+    background-color: rgb(246, 176, 186);
+}
+
+.courseList .nameInput {
+    height: 2.5rem;
+    width: 12rem;
+    margin-right: 1rem;
+}
+
+.courseList .otherInput {
+    height: 2.5rem;
+    width: 4rem;
+    margin-right: 0.5rem;
+}
+
+.courseList ol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0.5rem;
+    height: 88%;
+    padding: 0;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.courseList li {
+    padding-bottom: 0.8rem;
+}
+
+.courseList li .roundButton {
+    cursor: pointer;
+    background-color: white;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: black solid 1px;
+}
