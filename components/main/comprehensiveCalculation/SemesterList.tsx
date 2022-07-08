@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavbarButton from "../../UI/button/navbarButton";
 import styles from '../../../styles/components/main/comprehensiveCalculation.module.css';
 
@@ -16,7 +16,7 @@ const SemesterList = ({ sendSelectedSemester }) => {
         setSemester((prev) => [...prev, 1]);
     }
 
-    sendSelectedSemester(selectedSemester);
+    sendSelectedSemester(selectedSemester)
     
     return (
         <div className={ styles.semesterList }>
