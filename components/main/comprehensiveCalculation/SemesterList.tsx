@@ -4,7 +4,7 @@ import styles from '../../../styles/components/main/comprehensiveCalculation.mod
 
 const Semester = ({ index, selectedSemester }) => {
     return (
-        <option onClick={ selectedSemester(index) }>{ `Sem ${index}` }</option>
+        <option onClick={ () => selectedSemester(index) }>{ `Sem ${index}` }</option>
     )
 }
 

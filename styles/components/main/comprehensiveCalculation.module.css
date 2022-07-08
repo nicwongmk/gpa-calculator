@@ -102,3 +102,41 @@
     height: 1.5rem;
     border: black solid 1px;
 }
+
+.semesterBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0.2rem;
+    margin-left: 1rem;
+    width: 3rem;
+    height: 3rem;
+    border: black solid 1px;
+    border-radius: 5px;
+    text-align: center;
+    background: linear-gradient(180deg, rgb(22, 22, 60) 50%, white 50%);
+}
+
+.GPASummaryContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1rem;
+}
+
+.semesterBox h4 {
+    margin: 0;
+    color: white;
+}
+
+.semesterBox p {
+    margin: 0;
+}
+
+.GPASummary {
+    display: flex;
+}
+
+.GPASummary p {
+    font-size: 1.3rem;
+    margin-right: 1rem;
+}
