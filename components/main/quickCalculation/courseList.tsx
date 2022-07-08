@@ -14,11 +14,11 @@ const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
         totalEnteredCredits(totalEnteredCreditsCalculation);
     });
 
-    const addCourseHandler = (): void => {
+    const addCourseHandler = () => {
         setCourse((prev) => [...prev, { name:"", grade:"", credits: 0}]);
     };
 
-    const deleteCourseHandler = (index: number): void => {
+    const deleteCourseHandler = (index: number) => {
         setCourse([
             ...course.slice(0, index),
             ...course.slice(index + 1)
@@ -41,14 +41,14 @@ const CourseList = ({ cumulativeEnteredGPA, totalEnteredCredits }) => {
         }
     };
 
-    const cumulativeEnteredGPACalculation = (): number => ((course
+    const cumulativeEnteredGPACalculation = () => ((course
         .map(courseData => courseData.grade === "" ? 0 : gradeList
         .find(gradeList => (gradeList.grade === courseData.grade)) === undefined ? 0 : gradeList
         .find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits))
         .reduce((prev, points) => prev + points, 0)
     );
 
-    const totalEnteredCreditsCalculation = (): number => (course.reduce((prev, courseData) => prev + courseData.credits, 0));
+    const totalEnteredCreditsCalculation = () => (course.reduce((prev, courseData) => prev + courseData.credits, 0));
 
     return (
         <>

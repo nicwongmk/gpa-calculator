@@ -27,7 +27,7 @@ const SemesterList = ({ sendSelectedSemester }) => {
                 <Semester 
                     key={ index } 
                     index={ index + 1 } 
-                    selectedSemester={ (semester) => setSelectedSemester(semester) }
+                    selectedSemester={ (semester: number) => setSelectedSemester(semester) }
                 />) }
             </select>
         </div>

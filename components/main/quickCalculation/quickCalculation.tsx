@@ -15,11 +15,11 @@ const QuickCalculation = () => {
     const [currentGPA, setCurrentGPA] = useState(0);
     const [currentCredits, setCurrentCredits] = useState(0);
 
-    const showGPA = (rounding: string): number => {
+    const showGPA = (rounding: string) => {
         if (totalCredits === 0 && currentCredits === 0) return 0;
 
-        const gpaAfterMax: number = Math.min(((cumulativeGPA + currentGPA * currentCredits)  / (totalCredits + currentCredits )), maxGPA);
-        const decimalPlacesForFn: number = Math.pow(10, decimalPlaces) / Math.pow(10, decimalPlaces);
+        const gpaAfterMax = Math.min(((cumulativeGPA + currentGPA * currentCredits)  / (totalCredits + currentCredits )), maxGPA);
+        const decimalPlacesForFn = Math.pow(10, decimalPlaces) / Math.pow(10, decimalPlaces);
         switch(rounding) {
             case "roundTo":
                 return parseFloat(Math.min(gpaAfterMax)

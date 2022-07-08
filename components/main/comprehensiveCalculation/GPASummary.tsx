@@ -10,11 +10,11 @@ const GPASummary = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredit
     const {rounding} = useContext(RoundingContext);
     const showSelectedSemester = selectedSemester === 0 ? "All" : selectedSemester;
 
-    const showGPA = (rounding: string): number => {
+    const showGPA = (rounding: string) => {
         if (totalEnteredCredits === 0) return 0;
 
-        const gpaAfterMax: number = Math.min(((cumulativeEnteredGPA)  / (totalEnteredCredits)), maxGPA);
-        const decimalPlacesForFn: number = Math.pow(10, decimalPlaces) / Math.pow(10, decimalPlaces);
+        const gpaAfterMax = Math.min(((cumulativeEnteredGPA)  / (totalEnteredCredits)), maxGPA);
+        const decimalPlacesForFn = Math.pow(10, decimalPlaces) / Math.pow(10, decimalPlaces);
         switch(rounding) {
             case "roundTo":
                 return parseFloat(Math.min(gpaAfterMax)
@@ -29,18 +29,16 @@ const GPASummary = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredit
     };
     
     return (
-        <>
-            <div className={ styles.GPASummaryContainer }>
-                <div className={ styles.semesterBox }>
-                    <h4>Sem</h4>
-                    <p>{ showSelectedSemester }</p>
-                </div>
-                <header className={ styles.GPASummary }>
-                    <p>{`CGPA: ${showGPA(rounding)}`}</p> 
-                    <p>{`Total Credits: ${totalEnteredCredits}`}</p>
-                </header>
+        <div className={ styles.GPASummaryContainer }>
+            <div className={ styles.semesterBox }>
+                <h4>Sem</h4>
+                <p>{ showSelectedSemester }</p>
             </div>
-        </>
+            <header className={ styles.GPASummary }>
+                <p>{`CGPA: ${ showGPA(rounding) }`}</p> 
+                <p>{`Total Credits: ${ totalEnteredCredits }`}</p>
+            </header>
+        </div>
     );
 };
 
