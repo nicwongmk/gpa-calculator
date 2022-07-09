@@ -20,7 +20,7 @@ const Course = ({ courseID, courseData, changeCourseDataHandler, deleteCourseHan
                 className={ styles.otherInput } 
                 placeholder={"Grade"} 
                 value={ courseData.grade } 
-                onChange={(event) => changeCourseDataHandler(courseData.reference, courseData.name, event.target.value, courseData.credits, courseID)}
+                onChange={(event) => changeCourseDataHandler(courseData.reference, courseData.name, (event.target.value).toUpperCase(), courseData.credits, courseID)}
             />
             <RegularInput 
                 className={ styles.otherInput } 
