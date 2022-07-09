@@ -33,7 +33,7 @@ const Course = ({ courseID, courseData, changeCourseDataHandler, deleteCourseHan
     );
 }
 
-const CourseList = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredits }) => {
+const CourseList = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredits, courseData }) => {
     const { gradeList } = useContext(GradeContext);
     const [course, setCourse] = useState([]);
     const [invalidInput, setInvalidInput] = useState([0, false]);
@@ -80,6 +80,8 @@ const CourseList = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredit
         cumulativeEnteredGPA(cumulativeEnteredGPACalculation);
         totalEnteredCredits(totalEnteredCreditsCalculation);
     })
+
+    courseData(course);
 
     return (
         <div className={ styles.courseList }>

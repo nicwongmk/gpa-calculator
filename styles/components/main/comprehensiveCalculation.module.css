@@ -134,9 +134,17 @@
 
 .GPASummary {
     display: flex;
+    margin-bottom: 2rem;
 }
 
 .GPASummary p {
     font-size: 1.3rem;
     margin-right: 1rem;
+}
+
+.GPAVisuliser {
+    height: 30rem;
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }

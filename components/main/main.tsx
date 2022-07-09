@@ -1,6 +1,7 @@
 import QuickCalculation from './quickCalculation/quickCalculation';
 import ComprehensiveCalculation from './comprehensiveCalculation/comprehensiveCalculation';
 import styles from '../../styles/components/main/main.module.css';
+import GPAVisualiser from './comprehensiveCalculation/GPAVisualiser';
 
 const Main: React.FC = () => {
 
