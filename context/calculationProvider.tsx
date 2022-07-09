@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useLocalStorage from "../hooks/useLocalStorage";
 import DecimalPlacesContext from "./decimalPlacesContext";
 import GradeContext from "./gradeContext"
@@ -21,6 +22,7 @@ const CalculationDataProvider = (props: any) => {
         { grade: "D-", point: 0.7},
         { grade: "F", point: 0},
     ]);
+
     const [maxGPA, setMaxGPA] = useLocalStorage("maxGPA", 4.00);
     const [decimalPlaces, setDecimalPlaces] = useLocalStorage("decimalPlaces", 2);
     const [rounding, setRounding] = useLocalStorage("round", "roundTo");

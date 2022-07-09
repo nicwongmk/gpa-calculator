@@ -16,8 +16,10 @@ const SemesterList = ({ sendSelectedSemester }) => {
         setSemester((prev) => [...prev, 1]);
     }
 
-    sendSelectedSemester(selectedSemester)
-    
+    useEffect(() => {
+        sendSelectedSemester(selectedSemester)
+    }, [selectedSemester]);
+
     return (
         <div className={ styles.semesterList }>
             <NavbarButton onClick={ setSemesterHandler }>Add Semester</NavbarButton>

@@ -79,9 +79,8 @@ const CourseList = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredit
     useEffect(() => {
         cumulativeEnteredGPA(cumulativeEnteredGPACalculation);
         totalEnteredCredits(totalEnteredCreditsCalculation);
-    })
-
-    courseData(course);
+        courseData(course);
+    },[course]);
 
     return (
         <div className={ styles.courseList }>
