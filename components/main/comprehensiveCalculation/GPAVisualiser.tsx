@@ -25,13 +25,11 @@ const GPAVisualiser = ({ courseData }) => {
     for (let i = 1; i <= maxSemester; i++) {
         courseData.map(courseData => courseData.semester === i ? 
             gradeMap.has(i) ? 
-                gradeMap.set(i, [courseData.grade === "" ? 0　: ((gradeList.find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits) / courseMap.get(i) + parseFloat(gradeMap.get(i)))]) 
-            : gradeMap.set(i, [courseData.grade === "" ? 0　: (gradeList.find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits) / courseMap.get(i)]) 
+                gradeMap.set(i, courseData.grade === "" ? 0　
+                : ((gradeList.find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits) / courseMap.get(i) + parseFloat(gradeMap.get(i)))) 
+            : gradeMap.set(i, courseData.grade === "" ? 0　: (gradeList.find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits) / courseMap.get(i)) 
         : 0);
     }
-
-    console.log(courseMap);
-    console.log(gradeMap);
 
     const [chartData, setChartData] = useState({
         labels: [],
@@ -42,11 +40,11 @@ const GPAVisualiser = ({ courseData }) => {
 
     useEffect(() => {
         setChartData({
-            labels: courseData.map(courseData => courseData.semester),
+            labels: Array.from(courseMap.keys()),
             datasets: [
                 {
                     label: "GPA",
-                    data: courseData.map(courseData => courseData.GPA),
+                    data: Array.from(gradeMap.values()),
                     borderColor: "rgb(22, 22, 60)",
                 }
             ]
@@ -66,7 +64,7 @@ const GPAVisualiser = ({ courseData }) => {
                     },
                 },
                 y: {
-                    min: 3.0,
+                    min: Math.min(...Array.from(gradeMap.values()))*0.8,
                     ticks: {
                         font: {
                             family: 'Raleway',
@@ -93,7 +91,7 @@ const GPAVisualiser = ({ courseData }) => {
                 },
             }
         })
-    }, []);
+    }, [courseData, gradeList]);
 
     return (
         <Line className={ styles.GPAVisualiser } options={chartOptions} data={chartData}></Line>

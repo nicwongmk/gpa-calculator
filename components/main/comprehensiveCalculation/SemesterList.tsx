@@ -18,7 +18,7 @@ const SemesterList = ({ sendSelectedSemester }) => {
 
     useEffect(() => {
         sendSelectedSemester(selectedSemester)
-    }, [selectedSemester]);
+    });
 
     return (
         <div className={ styles.semesterList }>

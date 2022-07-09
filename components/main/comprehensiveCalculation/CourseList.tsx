@@ -67,20 +67,22 @@ const CourseList = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredit
         setCourse(newClone);
     };
 
-    const cumulativeEnteredGPACalculation = (): number => ((course
+    const cumulativeEnteredGPACalculation = () => ((course
+        .filter(courseData => selectedSemester === 0 ? courseData.semester !== 0 : courseData.semester === selectedSemester)
         .map(courseData => courseData.grade === "" ? 0 : gradeList
         .find(gradeList => (gradeList.grade === courseData.grade)) === undefined ? 0 : gradeList
         .find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits))
         .reduce((prev, points) => prev + points, 0)
     );
 
-    const totalEnteredCreditsCalculation = (): number => (course.reduce((prev, courseData) => prev + courseData.credits, 0));
+    const totalEnteredCreditsCalculation = () => 
+        (course.filter(courseData => selectedSemester === 0 ? courseData.semester !== 0 : courseData.semester === selectedSemester).reduce((prev, courseData) => prev + courseData.credits, 0));
 
     useEffect(() => {
         cumulativeEnteredGPA(cumulativeEnteredGPACalculation);
         totalEnteredCredits(totalEnteredCreditsCalculation);
         courseData(course);
-    },[course]);
+    });
 
     return (
         <div className={ styles.courseList }>
