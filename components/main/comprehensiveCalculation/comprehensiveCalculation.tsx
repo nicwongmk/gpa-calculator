@@ -9,7 +9,7 @@ const ComprehensiveCalculation = () => {
     const [selectedSemester, setSelectedSemester] = useState(0);
     const [cumulativeEnteredGPA, setCumulativeEnteredGPA] = useState(0);
     const [totalEnteredCredits, setTotalEnteredCredits] = useState(0);
-    const [courseData, setCourseData] = useState({reference: 0, semester: 0, name: "", grade: "", credits: 0});
+    const [courseData, setCourseData] = useState([]);
 
     return (
         <div className={ styles.comprehensiveCalculation }>
