@@ -12,14 +12,25 @@ const GPAVisualiser = ({ courseData }) => {
 
     const maxSemester = Math.max(...courseData.map(courseData => courseData.semester));
     let gradeMap = new Map;
-    for (let i = 1; i <= maxSemester; i++) {
-        courseData.map(courseData => courseData.semester === i ? 
-            gradeMap.has(i) ? 
-                gradeMap.set(i, [courseData.grade === "" ? 0　: ((gradeList.find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits) + parseInt(gradeMap.get(i)))]) 
-            : gradeMap.set(i, [courseData.grade === "" ? 0　: (gradeList.find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits)]) 
+    let courseMap = new Map;
+
+    for (let i = 1; i <=maxSemester; i++) {
+        courseData.map(courseData => courseData.semester === i ?
+            courseMap.has(i) ?
+                courseMap.set(i, courseData.credits + parseInt(courseMap.get(i)))
+            : courseMap.set(i, courseData.credits)
         : 0);
     }
 
+    for (let i = 1; i <= maxSemester; i++) {
+        courseData.map(courseData => courseData.semester === i ? 
+            gradeMap.has(i) ? 
+                gradeMap.set(i, [courseData.grade === "" ? 0　: ((gradeList.find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits) / courseMap.get(i) + parseFloat(gradeMap.get(i)))]) 
+            : gradeMap.set(i, [courseData.grade === "" ? 0　: (gradeList.find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits) / courseMap.get(i)]) 
+        : 0);
+    }
+
+    console.log(courseMap);
     console.log(gradeMap);
 
     const [chartData, setChartData] = useState({
