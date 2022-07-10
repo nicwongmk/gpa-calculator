@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { DoughnutController, CategoryScale, Chart, ArcElement, LinearScale, Title, Tooltip, Legend } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+Chart.register(ChartDataLabels);
 Chart.register(CategoryScale, LinearScale, DoughnutController, ArcElement, Title, Tooltip, Legend);
 import GradeContext from "../../../../context/gradeContext";
 import styles from '../../../../styles/components/main/comprehensiveCalculation.module.css';
@@ -85,22 +87,44 @@ const GradeVisualisation = ({ courseData }) => {
             data: chartData,
             options: {
                 responsive: true,
-                plugins: {
-                    legend: {
-                        display: false,
-                        position: 'bottom',
-                },
-                title: {
-                    display: false,
-                }
-              }
             },
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Grade Chart',
+                    color: "rgb(22, 22, 60)",
+                    font: {
+                        family: "Raleway",
+                        size: "24"
+                    },
+                },
+                datalabels: {
+                    display: function(context) {
+                        return context.dataset.data[context.dataIndex] !== 0
+                    },
+                    formatter: function (value, context) {
+                        return `${context.chart.data.labels[context.dataIndex]}: ${value}`;
+                    },
+                    color: '#FFFFFF',
+                    font: {
+                        family: "Raleway",
+                        size: "16"
+                    },
+                    labels: {
+                        title: {
+                            weight: "bold"
+                        }
+                    }
+                }
+            }
           }
         );
     }, [courseData])
 
     return (
-        <Doughnut className={ styles.gradeVisualisation } options={ chartOptions } data={ chartData } />
+        <div className={ styles.gradeVisualisation }>
+            <Doughnut options={ chartOptions } data={ chartData } />
+        </div>
     );
 }
 
