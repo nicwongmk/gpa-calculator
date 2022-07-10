@@ -1,18 +1,20 @@
 import { useContext, useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import { BarElement, PointElement, LineElement, CategoryScale, Chart, LinearScale, Title, Tooltip, Legend } from 'chart.js';
-Chart.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, Title, Tooltip, Legend);
-import GradeContext from "../../../context/gradeContext";
-import MaxGPAContext from "../../../context/maxGPAContext";
-import styles from '../../../styles/components/main/comprehensiveCalculation.module.css';
-import useCalculatingGPA from "../../../hooks/useCalculatingGPA";
+import { PointElement, LineElement, CategoryScale, Chart, LinearScale, Title, Tooltip, Legend } from 'chart.js';
+Chart.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend);
+import GradeContext from "../../../../context/gradeContext";
+import MaxGPAContext from "../../../../context/maxGPAContext";
+import styles from '../../../../styles/components/main/comprehensiveCalculation.module.css';
+import useCalculatingGPA from "../../../../hooks/useCalculatingGPA";
 
-const GPAVisualiser = ({ courseData, CGPA, totalCredits }) => {
+const GPAVisualisation = ({ courseData, CGPA, totalCredits }) => {
     if (courseData.length === 0) return;
 
     const { gradeList } = useContext(GradeContext);
     const { maxGPA } = useContext(MaxGPAContext);
     const GPA = useCalculatingGPA(CGPA, totalCredits);
+    const [chartData, setChartData] = useState({labels: [], datasets:[],});
+    const [chartOptions, setChartOptions] = useState({});
 
     const maxSemester = Math.max(...courseData.map(courseData => courseData.semester));
     let gradeMap = new Map;
@@ -35,19 +37,10 @@ const GPAVisualiser = ({ courseData, CGPA, totalCredits }) => {
         : 0);
     }
 
-    const [chartData, setChartData] = useState({
-        labels: [],
-        datasets:[],
-    });
-
-    const [chartOptions, setChartOptions] = useState({});
-
     const dataForAverage = [];
     for (let i = 0; i < maxSemester; i++) {
         dataForAverage[i] = GPA;
     }
-
-    console.log(gradeMap);
 
     useEffect(() => {
         setChartData({
@@ -114,8 +107,8 @@ const GPAVisualiser = ({ courseData, CGPA, totalCredits }) => {
     }, [courseData, gradeList]);
 
     return (
-        <Line className={ styles.GPAVisualiser } options={chartOptions} data={chartData}></Line>
+        <Line className={ styles.GPAVisualisation } options={chartOptions} data={chartData} />
     );
 };
 
-export default GPAVisualiser;
+export default GPAVisualisation;

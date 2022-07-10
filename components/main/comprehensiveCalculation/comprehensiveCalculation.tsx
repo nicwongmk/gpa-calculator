@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import CourseList from './CourseList';
 import GPASummary from './GPASummary';
-import GPAVisualiser from './GPAVisualiser';
 import SemesterList from './SemesterList';
 import styles from '../../../styles/components/main/comprehensiveCalculation.module.css';
+import GPAVisualiser from './GPAVisualiser/GPAVisualiser';
 
 const ComprehensiveCalculation = () => {
     const [selectedSemester, setSelectedSemester] = useState(0);

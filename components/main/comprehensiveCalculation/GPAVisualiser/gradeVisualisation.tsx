@@ -1,0 +1,107 @@
+import { useContext, useEffect, useState } from "react";
+import { Doughnut } from "react-chartjs-2";
+import { DoughnutController, CategoryScale, Chart, ArcElement, LinearScale, Title, Tooltip, Legend } from 'chart.js';
+Chart.register(CategoryScale, LinearScale, DoughnutController, ArcElement, Title, Tooltip, Legend);
+import GradeContext from "../../../../context/gradeContext";
+import styles from '../../../../styles/components/main/comprehensiveCalculation.module.css';
+
+const GradeVisualisation = ({ courseData }) => {
+    const [chartData, setChartData] = useState({labels: [], datasets:[],});
+    const [chartOptions, setChartOptions] = useState({});
+    const { gradeList } = useContext(GradeContext);
+
+    Chart.overrides.doughnut.plugins.legend.display = false;
+
+    const subGradeMap = new Map;
+    gradeList.map(gradeList => subGradeMap.set(gradeList.grade, 0));
+    courseData.map(courseData => subGradeMap.set(courseData.grade, subGradeMap.get(courseData.grade) + 1));
+
+    const gradeListArr = Array.from(subGradeMap.values());
+    for (let i = 0; i < gradeListArr.length; i++) {
+        if (i === 0 ) {
+            gradeListArr[1] = gradeListArr[1] + gradeListArr[0];
+            gradeListArr[0] = 0;
+        }
+        if (i === 2 ) {
+            gradeListArr[1] = gradeListArr[1] + gradeListArr[2];
+            gradeListArr[2] = 0;
+        }
+        if (i === 3 ) {
+            gradeListArr[4] = gradeListArr[4] + gradeListArr[3];
+            gradeListArr[3] = 0;
+        }
+        if (i === 5 ) {
+            gradeListArr[4] = gradeListArr[4] + gradeListArr[5];
+            gradeListArr[5] = 0;
+        }
+        if (i === 6 ) {
+            gradeListArr[7] = gradeListArr[7] + gradeListArr[6];
+            gradeListArr[6] = 0;
+        }
+        if (i === 8 ) {
+            gradeListArr[7] = gradeListArr[7] + gradeListArr[8]
+            gradeListArr[8] = 0;
+        }
+        if (i === 9 ) {
+            gradeListArr[10] = gradeListArr[10] + gradeListArr[9];
+            gradeListArr[9] = 0;
+        }
+        if (i === 11 ) {
+            gradeListArr[10] = gradeListArr[10] + gradeListArr[11];
+            gradeListArr[11] = 0;
+        }
+    }
+
+    useEffect(() => {
+        setChartData({
+            labels: gradeList.map(gradeList => gradeList.grade),
+            datasets: [
+              {
+                label: 'Dataset 1',
+                data: Array.from(subGradeMap.values()),
+                backgroundColor: [
+                    "#4B4BC9", "#33338A", "#16163C",
+                    "#49B0C9", "#32788A", "#16353D",
+                    "#44C96A", "#2F8A49", "#153D20",
+                    "#C9C34F", "#8A8636", "#3D3B18",
+                    "#C95338"
+                ],
+              },
+              {
+                label: 'Dataset 2',
+                data: gradeListArr,
+                backgroundColor: [
+                    "#4B4BC9", "#33338A", "#16163C",
+                    "#49B0C9", "#32788A", "#16353D",
+                    "#44C96A", "#2F8A49", "#153D20",
+                    "#C9C34F", "#8A8636", "#3D3B18",
+                    "#C95338"
+                ],
+              }
+            ]
+          });
+          
+        setChartOptions({
+            data: chartData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false,
+                        position: 'bottom',
+                },
+                title: {
+                    display: false,
+                }
+              }
+            },
+          }
+        );
+    }, [courseData])
+
+    return (
+        <Doughnut className={ styles.gradeVisualisation } options={ chartOptions } data={ chartData } />
+    );
+}
+
+export default GradeVisualisation;
