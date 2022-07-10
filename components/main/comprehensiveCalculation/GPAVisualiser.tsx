@@ -38,6 +38,12 @@ const GPAVisualiser = ({ courseData }) => {
 
     const [chartOptions, setChartOptions] = useState({});
 
+    const dataForAverage = [];
+
+    for (let i = 0; i < maxSemester; i++) {
+        dataForAverage[i] = parseFloat((Array.from(gradeMap.values()).reduce((a, b) => a + b, 0) / Array.from(gradeMap.values()).length).toFixed(2));
+    }
+
     useEffect(() => {
         setChartData({
             labels: Array.from(courseMap.keys()),
@@ -46,6 +52,13 @@ const GPAVisualiser = ({ courseData }) => {
                     label: "GPA",
                     data: Array.from(gradeMap.values()),
                     borderColor: "rgb(22, 22, 60)",
+                }, 
+                {
+                    label: "Average GPA",
+                    data: dataForAverage,
+                    borderColor: "rgba(22, 22, 60, 0.4)",
+                    borderDash: [6, 6],
+                    borderDashOffset: 0,
                 }
             ]
         });
@@ -64,6 +77,7 @@ const GPAVisualiser = ({ courseData }) => {
                     },
                 },
                 y: {
+                    max: Math.max(...Array.from(gradeMap.values())),
                     min: Math.min(...Array.from(gradeMap.values()))*0.8,
                     ticks: {
                         font: {

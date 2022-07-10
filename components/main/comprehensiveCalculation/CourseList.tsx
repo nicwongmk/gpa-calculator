@@ -38,16 +38,20 @@ const CourseList = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredit
     const [course, setCourse] = useState([]);
     const [invalidInput, setInvalidInput] = useState([0, false]);
 
+    console.log(course);
+
     const addCourseHandler = () => {
         reference++;
         setCourse((prev) => [...prev, { reference: reference, semester: selectedSemester, name: "", grade:"", credits:0 }])
     };
 
     const changeCourseDataHandler = (reference, name, grade, credits, courseID) => {
+        console.log(`reference: ${reference} courseID ${courseID}`)
         if (grade != "" && gradeList.find(gradeList => (gradeList.grade === grade)) === undefined ) {
             setInvalidInput([courseID, true]);
             const clone =[...course];
-            clone[courseID].grade = "";
+            const res = clone.findIndex(obj => obj.reference === reference);
+            clone[res].grade = "";
             setCourse(clone);
         } else {
             setInvalidInput([courseID, false]);
