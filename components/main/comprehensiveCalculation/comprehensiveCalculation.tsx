@@ -10,14 +10,16 @@ const ComprehensiveCalculation = () => {
     const [cumulativeEnteredGPA, setCumulativeEnteredGPA] = useState(0);
     const [totalEnteredCredits, setTotalEnteredCredits] = useState(0);
     const [courseData, setCourseData] = useState([]);
+    const [CGPA, setCGPA] = useState(0);
+    const [totalCredits, setTotalCredits] = useState(0);
 
     return (
         <div className={ styles.comprehensiveCalculation }>
             <SemesterList sendSelectedSemester={ (selectedSemester) => setSelectedSemester(selectedSemester) } />
-            <CourseList selectedSemester={ selectedSemester } cumulativeEnteredGPA={(cumulativeEnteredGPA) => setCumulativeEnteredGPA(cumulativeEnteredGPA)} totalEnteredCredits={(totalEnteredCredits) => setTotalEnteredCredits(totalEnteredCredits)} courseData={(courseData) => setCourseData(courseData)}/>
+            <CourseList selectedSemester={ selectedSemester } cumulativeEnteredGPA={(cumulativeEnteredGPA) => setCumulativeEnteredGPA(cumulativeEnteredGPA)} totalEnteredCredits={(totalEnteredCredits) => setTotalEnteredCredits(totalEnteredCredits)} courseData={(courseData) => setCourseData(courseData)} CGPA={(CGPA) => setCGPA(CGPA)} totalCredits={(totalCredits) => setTotalCredits(totalCredits)}/>
             <div className={ styles.GPAVisuliser }>
-                <GPASummary selectedSemester={ selectedSemester } cumulativeEnteredGPA={ cumulativeEnteredGPA } totalEnteredCredits={ totalEnteredCredits }/>
-                <GPAVisualiser courseData={ courseData }/>
+                <GPASummary selectedSemester={ selectedSemester } cumulativeEnteredGPA={ cumulativeEnteredGPA } totalEnteredCredits={ totalEnteredCredits } />
+                <GPAVisualiser courseData={ courseData } CGPA={ CGPA } totalCredits={ totalCredits } />
             </div>
         </div>
     );

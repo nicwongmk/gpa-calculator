@@ -1,32 +1,9 @@
-import { useContext } from 'react';
-import DecimalPlacesContext from '../../../context/decimalPlacesContext';
-import MaxGPAContext from '../../../context/maxGPAContext';
-import RoundingContext from '../../../context/roundingContext';
+import useCalculatingGPA from '../../../hooks/useCalculatingGPA';
 import styles from '../../../styles/components/main/comprehensiveCalculation.module.css';
 
 const GPASummary = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredits }) => {
-    const {maxGPA} = useContext(MaxGPAContext);
-    const {decimalPlaces} = useContext(DecimalPlacesContext);
-    const {rounding} = useContext(RoundingContext);
     const showSelectedSemester = selectedSemester === 0 ? "All" : selectedSemester;
-
-    const showGPA = (rounding: string) => {
-        if (totalEnteredCredits === 0) return 0;
-
-        const gpaAfterMax = Math.min(((cumulativeEnteredGPA)  / (totalEnteredCredits)), maxGPA);
-        const decimalPlacesForFn = Math.pow(10, decimalPlaces) / Math.pow(10, decimalPlaces);
-        switch(rounding) {
-            case "roundTo":
-                return parseFloat(Math.min(gpaAfterMax)
-                .toFixed(decimalPlaces));
-            case "roundUp":
-                return Math.ceil((gpaAfterMax) * decimalPlacesForFn);
-            case "roundDown":
-                return Math.floor((gpaAfterMax) * decimalPlacesForFn);
-            case "default":
-                return 0;
-        }
-    };
+    const GPA = useCalculatingGPA(cumulativeEnteredGPA, totalEnteredCredits);
     
     return (
         <div className={ styles.GPASummaryContainer }>
@@ -35,7 +12,7 @@ const GPASummary = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredit
                 <p>{ showSelectedSemester }</p>
             </div>
             <header className={ styles.GPASummary }>
-                <p>{`CGPA: ${ showGPA(rounding) }`}</p> 
+                <p>{`CGPA: ${ GPA }`}</p> 
                 <p>{`Total Credits: ${ totalEnteredCredits }`}</p>
             </header>
         </div>

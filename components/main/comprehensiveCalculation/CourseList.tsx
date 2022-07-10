@@ -33,12 +33,10 @@ const Course = ({ courseID, courseData, changeCourseDataHandler, deleteCourseHan
     );
 }
 
-const CourseList = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredits, courseData }) => {
+const CourseList = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredits, courseData, CGPA, totalCredits }) => {
     const { gradeList } = useContext(GradeContext);
     const [course, setCourse] = useState([]);
     const [invalidInput, setInvalidInput] = useState([0, false]);
-
-    console.log(course);
 
     const addCourseHandler = () => {
         reference++;
@@ -71,7 +69,7 @@ const CourseList = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredit
         setCourse(newClone);
     };
 
-    const cumulativeEnteredGPACalculation = () => ((course
+    const cumulativeEnteredGPACalculation = (selectedSemester) => ((course
         .filter(courseData => selectedSemester === 0 ? courseData.semester !== 0 : courseData.semester === selectedSemester)
         .map(courseData => courseData.grade === "" ? 0 : gradeList
         .find(gradeList => (gradeList.grade === courseData.grade)) === undefined ? 0 : gradeList
@@ -79,12 +77,14 @@ const CourseList = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredit
         .reduce((prev, points) => prev + points, 0)
     );
 
-    const totalEnteredCreditsCalculation = () => 
+    const totalEnteredCreditsCalculation = (selectedSemester) => 
         (course.filter(courseData => selectedSemester === 0 ? courseData.semester !== 0 : courseData.semester === selectedSemester).reduce((prev, courseData) => prev + courseData.credits, 0));
 
     useEffect(() => {
-        cumulativeEnteredGPA(cumulativeEnteredGPACalculation);
-        totalEnteredCredits(totalEnteredCreditsCalculation);
+        cumulativeEnteredGPA(cumulativeEnteredGPACalculation(selectedSemester));
+        totalEnteredCredits(totalEnteredCreditsCalculation(selectedSemester));
+        CGPA(cumulativeEnteredGPACalculation(0));
+        totalCredits(totalEnteredCreditsCalculation(0));
         courseData(course);
     });
 

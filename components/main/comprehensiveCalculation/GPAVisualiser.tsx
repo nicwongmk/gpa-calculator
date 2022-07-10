@@ -2,13 +2,17 @@ import { useContext, useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { BarElement, PointElement, LineElement, CategoryScale, Chart, LinearScale, Title, Tooltip, Legend } from 'chart.js';
 Chart.register(CategoryScale, LinearScale, BarElement, LineElement, PointElement, Title, Tooltip, Legend);
-import styles from '../../../styles/components/main/comprehensiveCalculation.module.css';
 import GradeContext from "../../../context/gradeContext";
+import MaxGPAContext from "../../../context/maxGPAContext";
+import styles from '../../../styles/components/main/comprehensiveCalculation.module.css';
+import useCalculatingGPA from "../../../hooks/useCalculatingGPA";
 
-const GPAVisualiser = ({ courseData }) => {
+const GPAVisualiser = ({ courseData, CGPA, totalCredits }) => {
     if (courseData.length === 0) return;
 
     const { gradeList } = useContext(GradeContext);
+    const { maxGPA } = useContext(MaxGPAContext);
+    const GPA = useCalculatingGPA(CGPA, totalCredits);
 
     const maxSemester = Math.max(...courseData.map(courseData => courseData.semester));
     let gradeMap = new Map;
@@ -27,7 +31,7 @@ const GPAVisualiser = ({ courseData }) => {
             gradeMap.has(i) ? 
                 gradeMap.set(i, courseData.grade === "" ? 0　
                 : ((gradeList.find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits) / courseMap.get(i) + parseFloat(gradeMap.get(i)))) 
-            : gradeMap.set(i, courseData.grade === "" ? 0　: (gradeList.find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits) / courseMap.get(i)) 
+            : gradeMap.set(i, courseData.grade === "" ? 0　: parseFloat(((gradeList.find(gradeList => (gradeList.grade === courseData.grade)).point * courseData.credits) / courseMap.get(i)).toFixed(3))) 
         : 0);
     }
 
@@ -39,10 +43,11 @@ const GPAVisualiser = ({ courseData }) => {
     const [chartOptions, setChartOptions] = useState({});
 
     const dataForAverage = [];
-
     for (let i = 0; i < maxSemester; i++) {
-        dataForAverage[i] = parseFloat((Array.from(gradeMap.values()).reduce((a, b) => a + b, 0) / Array.from(gradeMap.values()).length).toFixed(2));
+        dataForAverage[i] = GPA;
     }
+
+    console.log(gradeMap);
 
     useEffect(() => {
         setChartData({
@@ -77,14 +82,15 @@ const GPAVisualiser = ({ courseData }) => {
                     },
                 },
                 y: {
-                    max: Math.max(...Array.from(gradeMap.values())),
+                    max: Math.min(Math.max(...Array.from(gradeMap.values()))*1.05, maxGPA),
                     min: Math.min(...Array.from(gradeMap.values()))*0.8,
                     ticks: {
                         font: {
                             family: 'Raleway',
                         },
                     },
-                }
+                },
+
             },
             plugins: {
                 legend: {
