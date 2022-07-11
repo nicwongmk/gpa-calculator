@@ -8,6 +8,8 @@ import GradeContext from "../../../../context/gradeContext";
 import styles from '../../../../styles/components/main/comprehensiveCalculation.module.css';
 
 const GradeVisualisation = ({ courseData }) => {
+    if (courseData.length === 0) return;
+
     const [chartData, setChartData] = useState({labels: [], datasets:[],});
     const [chartOptions, setChartOptions] = useState({});
     const { gradeList } = useContext(GradeContext);
@@ -103,7 +105,7 @@ const GradeVisualisation = ({ courseData }) => {
                         return context.dataset.data[context.dataIndex] !== 0
                     },
                     formatter: function (value, context) {
-                        return `${context.chart.data.labels[context.dataIndex]}: ${value}`;
+                        return `${context.chart.data.labels[context.dataIndex]}(${value})`;
                     },
                     color: '#FFFFFF',
                     font: {

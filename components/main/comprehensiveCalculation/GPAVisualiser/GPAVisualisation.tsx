@@ -102,12 +102,15 @@ const GPAVisualisation = ({ courseData, CGPA, totalCredits }) => {
                         size: "24"
                     }
                 },
+                datalabels: {
+                    display: false
+                }
             }
         })
     }, [courseData, gradeList]);
 
     return (
-        <Line className={ styles.GPAVisualisation } options={chartOptions} data={chartData} />
+        <Line options={chartOptions} data={chartData} />
     );
 };
 

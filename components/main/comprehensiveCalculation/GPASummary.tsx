@@ -11,10 +11,10 @@ const GPASummary = ({ selectedSemester, cumulativeEnteredGPA, totalEnteredCredit
                 <h4>Sem</h4>
                 <p>{ showSelectedSemester }</p>
             </div>
-            <header className={ styles.GPASummary }>
+            <div className={ styles.GPASummary }>
                 <p>{`CGPA: ${ GPA }`}</p> 
                 <p>{`Total Credits: ${ totalEnteredCredits }`}</p>
-            </header>
+            </div>
         </div>
     );
 };
