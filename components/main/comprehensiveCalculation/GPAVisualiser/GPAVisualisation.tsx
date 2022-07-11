@@ -75,8 +75,8 @@ const GPAVisualisation = ({ courseData, CGPA, totalCredits }) => {
                     },
                 },
                 y: {
-                    max: Math.min(Math.max(...Array.from(gradeMap.values()))*1.05, maxGPA),
-                    min: Math.min(...Array.from(gradeMap.values()))*0.8,
+                    max: maxGPA,
+                    min: 0,
                     ticks: {
                         font: {
                             family: 'Raleway',
@@ -110,7 +110,7 @@ const GPAVisualisation = ({ courseData, CGPA, totalCredits }) => {
     }, [courseData, gradeList]);
 
     return (
-        <Line options={chartOptions} data={chartData} />
+        <Line className={ styles.lineChart } options={chartOptions} data={chartData} />
     );
 };
 
