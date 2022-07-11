@@ -24,6 +24,7 @@
 .semesterList {
     grid-area: 1 / 1 / 2 / 2;
     border-right: black solid 1px;
+    overflow: auto;
 }
 
 .semesterList select {
@@ -55,6 +56,7 @@
 .courseList {
     grid-area: 1 / 2 / 2 / 3;
     border-right: black solid 1px;
+    overflow: auto;
 }
 
 .comprehensiveCalculation .courseList button {
@@ -84,10 +86,10 @@
     flex-direction: column;
     align-items: center;
     margin-left: 0.5rem;
-    height: 88%;
     padding: 0;
+    height: 85%;
     text-align: left;
-    overflow-y: auto;
+    overflow: auto;
 }
 
 .courseList li {
@@ -155,6 +157,7 @@
     flex-direction: column;
     position: relative;
     width: 100%;
+    height: 100%;
 }
 
 .GPAVisuliser button {
@@ -182,12 +185,17 @@
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -1rem;
     margin-bottom: 1rem;
     width: 85%;
 }
 
-
 .lineChart {
     height: 5rem;
+}
+
+.GPAVisualisation {
+    height: 30rem;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
 }

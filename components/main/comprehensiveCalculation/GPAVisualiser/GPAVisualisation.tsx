@@ -75,8 +75,8 @@ const GPAVisualisation = ({ courseData, CGPA, totalCredits }) => {
                     },
                 },
                 y: {
-                    max: maxGPA,
-                    min: 0,
+                    max: Math.min(parseFloat((Math.max(...Array.from(gradeMap.values()))).toFixed(2))*1.05, maxGPA),
+                    min: parseFloat(Math.min(...Array.from(gradeMap.values())).toFixed(2))*0.8,
                     ticks: {
                         font: {
                             family: 'Raleway',
@@ -99,7 +99,8 @@ const GPAVisualisation = ({ courseData, CGPA, totalCredits }) => {
                     text: "GPA Visualisation",
                     font: {
                         family: "'Raleway'",
-                        size: "24"
+                        size: "24",
+                        color: "rgb(22, 22, 60)"
                     }
                 },
                 datalabels: {
@@ -110,7 +111,9 @@ const GPAVisualisation = ({ courseData, CGPA, totalCredits }) => {
     }, [courseData, gradeList]);
 
     return (
-        <Line className={ styles.lineChart } options={chartOptions} data={chartData} />
+        <div className={ styles.GPAVisualisation }>
+            <Line className={ styles.lineChart } options={chartOptions} data={chartData} />
+        </div>
     );
 };
 
