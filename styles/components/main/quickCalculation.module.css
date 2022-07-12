@@ -5,8 +5,8 @@
     width: 50%;
     max-width: 600px;
     min-width: 600px;
-    height: 70vh;
-    min-height: 30rem;
+    min-height: 70vh;
+    max-height: 70vh;
     margin-right: 15vw;
     border: rgb(22, 22, 60) solid 2px;
     border-radius: 25px;
@@ -49,7 +49,10 @@
 }
 
 .inputContainer {
-    display: flex;
+    display: grid;
+    grid-template-columns: 30% 20% 30% 20%;
+    grid-template-rows: 1fr;
+    justify-items: center;
     align-items: center;
 }
 
@@ -58,6 +61,7 @@
 }
 
 .inputContainer p {
+    padding: 1rem;
     font-size: 1.25rem;
 }
 
@@ -96,4 +100,99 @@
 .courseList .invalidInput {
     background-color: pink;
     content: "hello";
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        margin-top: 1rem;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .resultContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3rem;
+    }
+
+    .resultContainer p {
+        font-size: 1.2rem;
+    }
+
+    .inputContainer {
+        grid-template-columns: 60% 40%;
+        grid-template-rows: repeat(2, 1fr);
+        align-items: center;
+        justify-items: left;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 1rem;
+        width: 60%;
+    }
+
+    .inputContainer p {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .container > button {
+        position: absolute;
+        top: 4rem;
+        right: 1rem;
+        left: auto;
+        padding: 0;
+        width: 10rem;
+        font-size: 0.4rem;
+    }
+
+    .courseListContainer {
+        margin-top: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .container {
+        min-width: 0;
+        width: 90%;
+    }
+
+    .container > button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3rem;
+    }
+
+    .resultContainer p{
+        font-size: 1.2rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .inputContainer p {
+        font-size: min(1.25rem, 3vw);
+        padding-right: 0.3rem;
+    }
+
+    .inputContainer input {
+        width: min(5rem, 12vw);
+    }
+
+    .courseListContainer {
+        padding: 0;
+    }
+
+    .courseListContainer .courseNameInput{
+        margin-right: 1rem;
+        width: 12rem;
+
+    }
+
+    .courseListContainer .dataInput{
+        width: 3rem;
+    }
 }

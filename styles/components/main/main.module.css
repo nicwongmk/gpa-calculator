@@ -38,7 +38,6 @@
     margin: 0;
     padding-left: 15vw;
     padding-right: 5vw;
-    position: relative;
 }
 
 .quickCalculation section p {
@@ -50,21 +49,28 @@
     position: relative;
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1200px) {
     .quickCalculation {
         flex-direction: column;
-        justify-content:start;
-        height: 85vh;
+        min-height: 0;
+        padding-top: 0rem;
+        justify-content: center;
     }
 
-    .quickCalculation h2 {
-        padding-top: 10%;
-        padding-right: 10vw;
-        font-size: min(max(3vw, 25px), 65px);
+    .quickCalculation section h2 {
+        margin: 0;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 1rem;
+        text-align: center;
     }
 
-    .quickCalculation p {
-        font-size: min(max(2.5vw, 17.5px), 39px);
+    .quickCalculation section p {
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+        font-size: 1.25rem;
     }
 }
 
@@ -87,7 +93,6 @@
 }
 
 .comprehensiveCalculation section h2 {
-    margin: 0;
     font-size: min(max(3vw, 25px), 50px);
     color: rgb(22, 22, 60);
     text-align: center;
@@ -98,4 +103,5 @@
     font-size: min(max(3vw, 20px), 25px);
     color: rgb(22, 22, 60);
     text-align: center;
+
 }
