@@ -181,8 +181,8 @@
         grid-template-columns: 60% 40%;
         grid-template-rows: repeat(2, 1fr);
         justify-items: left;
-        padding-top: 0.1rem;
-        padding-bottom: 0.1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0rem;
         padding-left: 1rem;
         width: 60%;
     }
