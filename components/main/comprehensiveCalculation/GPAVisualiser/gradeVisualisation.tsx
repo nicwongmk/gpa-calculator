@@ -18,7 +18,9 @@ const GradeVisualisation = ({ courseData }) => {
 
     const subGradeMap = new Map;
     gradeList.map(gradeList => subGradeMap.set(gradeList.grade, 0));
-    courseData.map(courseData => subGradeMap.set(courseData.grade, subGradeMap.get(courseData.grade) + 1));
+    courseData.filter(courseData => courseData.grade !== "").map(courseData => subGradeMap.set(courseData.grade, subGradeMap.get(courseData.grade) + 1));
+
+    console.log(subGradeMap);
 
     const gradeListArr = Array.from(subGradeMap.values());
     for (let i = 0; i < gradeListArr.length; i++) {
@@ -102,7 +104,7 @@ const GradeVisualisation = ({ courseData }) => {
                 },
                 datalabels: {
                     display: function(context) {
-                        return context.dataset.data[context.dataIndex] !== 0
+                        return (context.dataset.data[context.dataIndex] !== 0)
                     },
                     formatter: function (value, context) {
                         return `${context.chart.data.labels[context.dataIndex]}(${value})`;

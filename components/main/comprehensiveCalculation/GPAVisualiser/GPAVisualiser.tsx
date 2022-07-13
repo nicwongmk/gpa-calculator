@@ -13,10 +13,8 @@ const GPAVisualiser = ({ courseData, CGPA, totalCredits }) => {
                 { visualiserType === "GPAChart" && <GPAVisualisation courseData={ courseData } CGPA={ CGPA } totalCredits={totalCredits} /> }
                 { visualiserType === "gradeChart" && <GradeVisualisation courseData={ courseData } /> }
            </div>
-           <div className={ styles.GPAVisualiserButtonContainer }>
                 <MainButton onClick={ () => setVisualiserType("GPAChart") }>GPA Chart</MainButton>
                 <MainButton onClick={ () => setVisualiserType("gradeChart") }>Grade Chart</MainButton>
-           </div>
         </div>
     );
 }

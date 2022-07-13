@@ -93,14 +93,15 @@
 }
 
 .comprehensiveCalculation section h2 {
-    font-size: min(max(3vw, 25px), 50px);
+    font-size: min(max(3vw, 28px), 50px);
     color: rgb(22, 22, 60);
     text-align: center;
+    margin: 0;
 }
 
 .comprehensiveCalculation section P {
     margin: 0;
-    font-size: min(max(3vw, 20px), 25px);
+    font-size: min(max(3vw, 18px), 23px);
     color: rgb(22, 22, 60);
     text-align: center;
 
