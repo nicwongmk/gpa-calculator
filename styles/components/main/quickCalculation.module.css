@@ -109,7 +109,7 @@
     }
 }
 
-@media screen and (max-height: 700px) {
+@media screen and (max-height: 1px) {
     .resultContainer {
         display: flex;
         justify-content: center;
@@ -159,10 +159,14 @@
     }
 
     .container > button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.3rem;
+        position: absolute;
+        top: 4.25rem;
+        right: 1rem;
+        left: auto;
+        padding: 0;
+        height: 4rem;
+        width: 35%;
+        font-size: 1rem;
     }
 
     .resultContainer p{
@@ -173,13 +177,24 @@
         padding-bottom: 0.8rem;
     }
 
-    .inputContainer p {
-        font-size: min(1.25rem, 3vw);
-        padding-right: 0.3rem;
+    .inputContainer {
+        grid-template-columns: 60% 40%;
+        grid-template-rows: repeat(2, 1fr);
+        justify-items: left;
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+        padding-left: 1rem;
+        width: 60%;
     }
 
+    .inputContainer p {
+        font-size: min(1.25rem, 3vw);
+        padding-top: 0.8rem;
+    }
+
+
     .inputContainer input {
-        width: min(5rem, 12vw);
+        width: min(rem, 12vw);
     }
 
     .courseListContainer {

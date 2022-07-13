@@ -8,7 +8,7 @@ const useCalculatingGPA = (GPA: number, credits: number) => {
     const { decimalPlaces } = useContext(DecimalPlacesContext);
     const { rounding } = useContext(RoundingContext);
 
-    if (credits === 0) return 0;
+    if (credits === 0 || GPA === 0 || credits === undefined || GPA === undefined) return 0;
 
     const gpaAfterMax = Math.min(((GPA)  / (credits)), maxGPA);
     const decimalPlacesForFn = Math.pow(10, decimalPlaces) / Math.pow(10, decimalPlaces);
