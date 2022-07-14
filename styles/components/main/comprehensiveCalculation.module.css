@@ -262,9 +262,7 @@
     }
 
     .gradeVisualisation {
-        width: 50vh;
-        min-width: 1r5em;
-        max-width: 25rem;
+        width: 17.5rem;
     }
     
     .GPAVisualisation {
