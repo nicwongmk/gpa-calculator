@@ -17,13 +17,13 @@ const Course = ({ courseID, courseData, changeCourseDataHandler, deleteCourseHan
                 onChange={(event) => changeCourseDataHandler(courseData.reference, event.target.value, courseData.grade, courseData.credits, courseID)}
             />
             <RegularInput 
-                className={ styles.otherInput } 
+                className={ styles.gradeInput } 
                 placeholder={"Grade"} 
                 value={ courseData.grade } 
                 onChange={(event) => changeCourseDataHandler(courseData.reference, courseData.name, (event.target.value).toUpperCase(), courseData.credits, courseID)}
             />
             <RegularInput 
-                className={ styles.otherInput } 
+                className={ styles.creditsInput } 
                 placeholder={"Credit"} 
                 value={ courseData.credits } 
                 onChange={(event) => changeCourseDataHandler(courseData.reference, courseData.name, courseData.grade, parseInt(event.target.value || 0), courseID)} 
