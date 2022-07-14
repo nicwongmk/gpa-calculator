@@ -112,7 +112,7 @@ const GPAVisualisation = ({ courseData, CGPA, totalCredits }) => {
 
     return (
         <div className={ styles.GPAVisualisation }>
-            <Line className={ styles.lineChart } options={chartOptions} data={chartData} />
+            <Line options={chartOptions} data={chartData} />
         </div>
     );
 };

@@ -191,3 +191,11 @@
     min-width: 17rem;
     max-width: 25rem;
 }
+
+.GPAVisualisation {
+    height: 55vh;
+    min-height: 17rem;
+    max-height: 25rem;
+    width: 35vw;
+    max-width: 30rem;
+}
