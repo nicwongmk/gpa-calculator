@@ -8,14 +8,16 @@ const GPAVisualiser = ({ courseData, CGPA, totalCredits }) => {
     const [visualiserType, setVisualiserType] = useState("GPAChart");
 
     return (
-        <div className={ styles.visualiserContainer }>
-            <div className={ styles.GPAVisualiserContainer }>
+        <>
+            <div className={ styles.visualiserContainer }>
                 { visualiserType === "GPAChart" && <GPAVisualisation courseData={ courseData } CGPA={ CGPA } totalCredits={totalCredits} /> }
                 { visualiserType === "gradeChart" && <GradeVisualisation courseData={ courseData } /> }
-           </div>
+            </div>
+            <div className={ styles.buttonContainer }>
                 <MainButton onClick={ () => setVisualiserType("GPAChart") }>GPA Chart</MainButton>
                 <MainButton onClick={ () => setVisualiserType("gradeChart") }>Grade Chart</MainButton>
-        </div>
+            </div>
+        </>
     );
 }
 
