@@ -9,7 +9,7 @@ const QuickCalculation = () => {
     const [totalCredits, setTotalCredits] = useState(0);
     const [currentGPA, setCurrentGPA] = useState<Number | string>(0);
     const [currentCredits, setCurrentCredits] = useState<number | string>(0);
-    const showGPA = useCalculatingGPA(cumulativeGPA, totalCredits);
+    const showGPA: number | string = useCalculatingGPA(cumulativeGPA + currentGPA * currentCredits, totalCredits + currentCredits);
 
     console.log(currentCredits);
     
@@ -19,7 +19,7 @@ const QuickCalculation = () => {
                 <p>CGPA:</p>
                 <p>{ showGPA }</p>
                 <p>Total Credits:</p>
-                <p>{ 0 }</p>
+                <p>{ (totalCredits + currentCredits) }</p>
             </header>
             <div className={ styles.inputContainer }>
                 <p>Current GPA:</p>
