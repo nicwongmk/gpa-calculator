@@ -3,7 +3,7 @@ import DecimalPlacesContext from "../context/decimalPlacesContext";
 import MaxGPAContext from "../context/maxGPAContext";
 import RoundingContext from "../context/roundingContext";
 
-const useCalculatingGPA = (GPA: number, credits: number) => {
+const useCalculatingGPA = (GPA: any, credits: any) => {
     const { maxGPA } = useContext(MaxGPAContext);
     const { decimalPlaces } = useContext(DecimalPlacesContext);
     const { rounding } = useContext(RoundingContext);
