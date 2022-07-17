@@ -8,10 +8,10 @@ const Main: React.FC = () => {
     return (
         <main>
             <aside className={ styles.main }>
-                <h1>A flexible way to <br /> calculate your GPA</h1>
-                <p>． Customised points</p>
-                <p>． Self-defined decimal places</p>
-                <p>． Visualised GPA chart</p>
+                <h1>A <span className={ styles.colourfulText }>flexible way</span> to <br /> calculate your GPA</h1>
+                <p className={ styles.sentence1 }> Customised points</p>
+                <p className={ styles.sentence2 }> Self-defined decimal places</p>
+                <p className={ styles.sentence3 }> Visualised GPA chart</p>
             </aside>
             <div className={ styles.quickCalculation }>
                 <section>

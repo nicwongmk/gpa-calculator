@@ -9,9 +9,10 @@ const Home: NextPage = () => {
   return (
     <CalculationDataProvider>
       <div className={styles.container}>
-          <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"></link>
+      <link href="https://fonts.googleapis.com/css2?family=Philosopher&family=Poiret+One&family=Raleway&display=swap" rel="stylesheet" />
           <Header />
           <Main />
+          <Footer />
       </div>
     </CalculationDataProvider>
   );

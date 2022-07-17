@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import styles from '../../styles/components/header/header.module.css';
 import HamburgerButton from '../UI/button/hamburgerButton';
 import MainButton from '../UI/button/mainButton';
 import About from './about/about';
 import Contact from './contact/contact';
 import RightNavbar from './rightNavbar';
 import Setting from './setting/setting';
+import styles from '../../styles/components/header/header.module.css';
+import humberger from "../UI/button/hamburger.png";
 
 const Header = () => {
     const [showNavbar, setShowNavbar] = useState(false);
@@ -21,7 +22,7 @@ const Header = () => {
                     <MainButton className={ styles.mainButton } onClick={() => setShowSetting((prev) => !prev)}>Setting</MainButton>
                     <MainButton className={ styles.mainButton } onClick={() => setShowAbout((prev) => !prev)}>About</MainButton>
                     <MainButton className={ styles.mainButton } onClick={() => setShowContact((prev) => !prev)}>Contact</MainButton>
-                    <HamburgerButton className={ styles.hamburgerButton } onClick={() => setShowNavbar((prev) => !prev)}>≡</HamburgerButton>
+                    <HamburgerButton className={ styles.hamburgerButton } onClick={() => setShowNavbar((prev) => !prev)}><img src={humberger.src} /></HamburgerButton>
                     { showSetting && <Setting closeSetting={() => setShowSetting((prev) => !prev)}/> }
                     { showAbout && <About closeAbout={() => setShowAbout((prev) => !prev)}/> }
                     { showContact && <Contact closeContact={() => setShowContact((prev) => !prev)}/> }

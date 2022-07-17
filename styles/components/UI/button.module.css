@@ -16,6 +16,11 @@
     color: rgb(22, 22, 60);
 }
 
+.mainButton:active {
+    background-color: lightgrey;
+    transition: 0s;
+}
+
 .hamburgerButton {
     cursor: pointer;
     padding-bottom: 1rem;
@@ -24,6 +29,11 @@
     font-size: 5rem;
     background-color: transparent;
     color: white;
+}
+
+.hamburgerButton img {
+    width: 2rem;
+    height: 2rem;
 }
 
 .navbarButton {

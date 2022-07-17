@@ -11,14 +11,66 @@
     padding-left: 20vw;
     position: relative;
     top: 30vh;
+    animation: slide-down 1000ms ease-out forwards;
 }
+
+@keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+.main .colourfulText {
+    background: linear-gradient(to right, #ffcfdd 0%, #bc85ff 0%, #86ffe5 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+
 
 .main p {
     font-size: min(max(2.5vw, 20px), 37.5px);
+    width: 80%;
     margin: 0;
     padding-left: 20vw;
     position: relative;
     top: 35vh;
+}
+
+.main .sentence1 {
+    color: transparent;
+    animation: slide-left 1000ms ease-out forwards;
+    animation-delay: 500ms
+}
+
+.main .sentence2 {
+    color: transparent;
+    animation: slide-left 1000ms ease-out forwards;
+    animation-delay: 600ms
+}
+
+.main .sentence3 {
+    color: transparent;
+    animation: slide-left 1000ms ease-out forwards;
+    animation-delay: 700ms;
+    
+}
+
+@keyframes slide-left {
+    from {
+        opacity: 0;
+        transform: translateX(2rem);
+    }
+    to {
+        color: white;
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .quickCalculation {
