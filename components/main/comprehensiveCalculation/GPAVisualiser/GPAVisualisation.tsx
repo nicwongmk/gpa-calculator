@@ -8,7 +8,6 @@ import styles from '../../../../styles/components/main/comprehensiveCalculation.
 import useCalculatingGPA from "../../../../hooks/useCalculatingGPA";
 
 const GPAVisualisation = ({ courseData, CGPA, totalCredits }) => {
-    if (courseData.length === 0) return;
 
     const { gradeList } = useContext(GradeContext);
     const { maxGPA } = useContext(MaxGPAContext);

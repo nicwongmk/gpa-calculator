@@ -5,7 +5,7 @@ const About = ({ closeAbout }) => {
     return (
         <Modal className={ styles.container } closeModal={ closeAbout }>
             <h2>About</h2>
-            <p>The "GPA Calculator" helps you to calculate your GPA by customised settings.
+            <p>The GPA Calculator helps you to calculate your GPA by customised settings.
                 Items below show the settings that you can define to fit your needs: <br /><br />
                 1. Points gained by each grade <br />
                 2. Maximum CGPA <br />
@@ -18,7 +18,7 @@ const About = ({ closeAbout }) => {
                 using Next.js with TypeScript. It is also my first side project
                 and I am excited to help you in calculating your GPA!
                 <br /><br />
-                Please contact me using the "Contact" button on the menu if you have any
+                Please contact me using the Contact button on the menu if you have any
                 recommendations.
                 <br /><br />
                 Enjoy!
